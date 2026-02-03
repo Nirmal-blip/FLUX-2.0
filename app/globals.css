@@ -1,0 +1,928 @@
+@import "tailwindcss";
+
+/* Athletic Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap');
+
+/* Root Variables */
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-orbitron: 'Orbitron', monospace;
+  --font-jetbrains-mono: 'JetBrains Mono', monospace;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-space-grotesk: 'Space Grotesk', sans-serif;
+  --font-rajdhani: 'Rajdhani', sans-serif;
+  --font-jersey: 'Teko', 'Rajdhani', 'Exo 2', 'Arial Black', sans-serif;
+  --font-athletic: 'Oswald', 'Bebas Neue', 'Anton', 'Teko', 'Rajdhani', sans-serif;
+  --font-sporty: 'Russo One', 'Orbitron', 'Exo 2', 'Rajdhani', sans-serif;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
+}
+
+body {
+  background-color: #000;
+  font-family: var(--font-inter);
+}
+
+/* Font Classes */
+.font-inter { font-family: var(--font-inter); }
+.font-orbitron { font-family: var(--font-orbitron); }
+.font-jetbrains-mono { font-family: var(--font-jetbrains-mono); }
+.font-poppins { font-family: var(--font-poppins); }
+.font-space-grotesk { font-family: var(--font-space-grotesk); }
+.font-rajdhani { font-family: var(--font-rajdhani); }
+.font-jersey { font-family: var(--font-jersey); }
+.font-athletic { font-family: var(--font-athletic); }
+.font-sporty { font-family: var(--font-sporty); }
+
+/* Marvel Theme Animations */
+@keyframes marvelShine {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes arcReactor {
+  0% {
+    transform: rotate(0deg) scale(1);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+    box-shadow: 0 0 40px rgba(6, 182, 212, 0.8);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+  }
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes energyPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4), 0 0 40px rgba(225, 6, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 229, 255, 0.6), 0 0 60px rgba(225, 6, 0, 0.4);
+  }
+}
+
+@keyframes hologramFlicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes gridPulse {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+@keyframes scanLine {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px currentColor) drop-shadow(0 0 10px currentColor);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px currentColor) drop-shadow(0 0 20px currentColor) drop-shadow(0 0 30px currentColor);
+  }
+}
+
+@keyframes dataStream {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Marvel Utility Classes */
+.marvel-gradient {
+  background: linear-gradient(135deg, #E10600 0%, #FFD700 50%, #00E5FF 100%);
+  background-size: 200% 200%;
+  animation: marvelShine 3s ease-in-out infinite;
+}
+
+.marvel-gradient-alt {
+  background: linear-gradient(135deg, #00E5FF 0%, #A855F7 50%, #E10600 100%);
+  background-size: 200% 200%;
+  animation: marvelShine 4s ease-in-out infinite;
+}
+
+.comic-border {
+  border-style: solid;
+  position: relative;
+}
+
+.hero-aura {
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 40px currentColor;
+}
+
+.arc-reactor {
+  animation: arcReactor 3s linear infinite;
+}
+
+.energy-pulse {
+  animation: energyPulse 2s ease-in-out infinite;
+}
+
+.hologram-effect {
+  animation: hologramFlicker 3s ease-in-out infinite;
+}
+
+/* Iron Man Arc Reactor Glow */
+.arc-glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.5), 
+              0 0 40px rgba(0, 229, 255, 0.3),
+              inset 0 0 20px rgba(0, 229, 255, 0.2);
+}
+
+.arc-glow-red {
+  box-shadow: 0 0 20px rgba(225, 6, 0, 0.5), 
+              0 0 40px rgba(225, 6, 0, 0.3),
+              inset 0 0 20px rgba(225, 6, 0, 0.2);
+}
+
+/* Stark Tech UI Elements */
+.stark-panel {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 27, 45, 0.95) 100%);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.stark-panel:hover {
+  border-color: rgba(0, 229, 255, 0.6);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+}
+
+/* Data Stream Effects */
+.data-stream {
+  animation: dataStream 3s linear infinite;
+}
+
+/* Glow Pulse Effect */
+.glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* Scan Line Effect */
+.scan-line {
+  animation: scanLine 3s linear infinite;
+}
+
+/* Grid Animation */
+.grid-animate {
+  animation: gridMove 20s linear infinite;
+}
+
+/* Tech Border Glow */
+.tech-border {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(black, black) padding-box,
+              linear-gradient(135deg, #00E5FF, #A855F7, #E10600) border-box;
+}
+
+.tech-border-animated {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(black, black) padding-box,
+              linear-gradient(135deg, #00E5FF, #A855F7, #E10600) border-box;
+  animation: marvelShine 3s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+/* Holographic Text Effect */
+.holographic-text {
+  background: linear-gradient(135deg, #00E5FF 0%, #A855F7 50%, #E10600 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: marvelShine 3s ease-in-out infinite;
+}
+
+/* Neon Glow Text */
+.neon-text-cyan {
+  color: #00E5FF;
+  text-shadow: 
+    0 0 10px rgba(0, 229, 255, 0.8),
+    0 0 20px rgba(0, 229, 255, 0.6),
+    0 0 30px rgba(0, 229, 255, 0.4),
+    0 0 40px rgba(0, 229, 255, 0.2);
+}
+
+.neon-text-red {
+  color: #E10600;
+  text-shadow: 
+    0 0 10px rgba(225, 6, 0, 0.8),
+    0 0 20px rgba(225, 6, 0, 0.6),
+    0 0 30px rgba(225, 6, 0, 0.4),
+    0 0 40px rgba(225, 6, 0, 0.2);
+}
+
+.neon-text-purple {
+  color: #A855F7;
+  text-shadow: 
+    0 0 10px rgba(168, 85, 247, 0.8),
+    0 0 20px rgba(168, 85, 247, 0.6),
+    0 0 30px rgba(168, 85, 247, 0.4),
+    0 0 40px rgba(168, 85, 247, 0.2);
+}
+
+/* Circuit Line Animation */
+@keyframes circuitFlow {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.circuit-line {
+  stroke-dasharray: 1000;
+  animation: circuitFlow 5s linear infinite;
+}
+
+/* Hexagon Pulse */
+@keyframes hexPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.hex-pulse {
+  animation: hexPulse 3s ease-in-out infinite;
+}
+
+/* Energy Shield Effect */
+.energy-shield {
+  position: relative;
+  overflow: hidden;
+}
+
+.energy-shield::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(0, 229, 255, 0.3) 90deg,
+    transparent 180deg,
+    rgba(225, 6, 0, 0.3) 270deg,
+    transparent 360deg
+  );
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Marvel Arc Reactor Pulse */
+@keyframes arcPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(0, 229, 255, 0.5),
+      0 0 40px rgba(0, 229, 255, 0.3),
+      inset 0 0 20px rgba(0, 229, 255, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 0 40px rgba(0, 229, 255, 0.8),
+      0 0 80px rgba(0, 229, 255, 0.5),
+      inset 0 0 30px rgba(0, 229, 255, 0.4);
+  }
+}
+
+.arc-pulse-cyan {
+  animation: arcPulse 2s ease-in-out infinite;
+}
+
+/* Stark Tech Hologram */
+@keyframes hologramGlitch {
+  0%, 100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  10% {
+    opacity: 0.8;
+    transform: translateX(-2px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(2px);
+  }
+  30% {
+    opacity: 0.9;
+    transform: translateX(0);
+  }
+}
+
+.hologram-glitch {
+  animation: hologramGlitch 5s ease-in-out infinite;
+}
+
+/* Energy Wave */
+@keyframes energyWave {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+    opacity: 0;
+  }
+}
+
+.energy-wave {
+  animation: energyWave 3s ease-in-out infinite;
+}
+
+/* Repulsor Charge */
+@keyframes repulsorCharge {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+.repulsor-charge {
+  animation: repulsorCharge 1.5s ease-in-out infinite;
+}
+
+/* FLUX UI Improvements */
+.flux-title-main {
+  font-size: clamp(2rem, 8vw, 4rem);
+  line-height: 1.1;
+}
+
+.flux-title-section {
+  font-size: clamp(1.5rem, 6vw, 3rem);
+  line-height: 1.2;
+}
+
+.flux-subtitle {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  line-height: 1.3;
+}
+
+/* Card Layout Fixes */
+.flux-equal-height-grid {
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+
+.flux-card-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 500px;
+}
+
+.flux-hero-card {
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flux-event-card {
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flux-gallery-card {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .flux-hero-card {
+    min-height: 500px;
+  }
+  
+  .flux-event-card {
+    min-height: 450px;
+  }
+  
+  .flux-gallery-card {
+    min-height: 350px;
+  }
+}
+
+/* Grid Improvements */
+.flux-responsive-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
+}
+
+@media (min-width: 768px) {
+  .flux-responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .flux-responsive-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Utility Classes */
+.flux-text-container {
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.flux-description-container {
+  min-height: 5rem;
+  display: flex;
+  align-items: center;
+}
+
+.flux-tags-container {
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.flux-button-container {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+/* Performance Optimizations */
+.flux-gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Accessibility */
+.flux-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus States */
+.flux-interactive:focus-visible {
+  outline: 2px solid #D41F2A;
+  outline-offset: 2px;
+}
+
+/* Scrollbar Styling */
+/* Global Scrollbar Global Override */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00E5FF; /* Stark Blue on hover */
+  box-shadow: 0 0 10px #00E5FF;
+}
+
+/* Touch Targets */
+@media (max-width: 768px) {
+  .flux-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Athletic/Sports Theme Styles */
+.athletic-title {
+  font-family: var(--font-athletic);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.sporty-text {
+  font-family: var(--font-sporty);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.jersey-number {
+  font-family: var(--font-jersey);
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.team-name {
+  font-family: var(--font-athletic);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.player-name {
+  font-family: var(--font-sporty);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Athletic Animations */
+@keyframes athleticPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes teamColors {
+  0% { filter: hue-rotate(0deg); }
+  25% { filter: hue-rotate(90deg); }
+  50% { filter: hue-rotate(180deg); }
+  75% { filter: hue-rotate(270deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.athletic-pulse {
+  animation: athleticPulse 2s ease-in-out infinite;
+}
+
+.team-colors {
+  animation: teamColors 4s linear infinite;
+}
+
+/* Athletic Typography Utilities */
+.athletic-heading {
+  font-family: var(--font-athletic);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 0.9;
+}
+
+.sporty-heading {
+  font-family: var(--font-sporty);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.jersey-text {
+  font-family: var(--font-jersey);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Athletic Button Styles */
+.athletic-button {
+  font-family: var(--font-athletic);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+}
+
+.athletic-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Sports Team Colors */
+.team-blue { color: #3B82F6; }
+.team-orange { color: #F97316; }
+.team-red { color: #EF4444; }
+.team-green { color: #10B981; }
+.team-purple { color: #8B5CF6; }
+.team-yellow { color: #F59E0B; }
+
+/* Athletic Gradients */
+.athletic-gradient-blue {
+  background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+}
+
+.athletic-gradient-orange {
+  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+}
+
+.athletic-gradient-multi {
+  background: linear-gradient(135deg, #F97316 0%, #3B82F6 50%, #F97316 100%);
+  background-size: 200% 200%;
+  animation: marvelShine 3s ease-in-out infinite;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .marvel-gradient,
+  .arc-reactor {
+    animation: none;
+  }
+}
+
+/* ========================================
+   SWIPER CUSTOM STYLES FOR FLUX GALLERY
+   ======================================== */
+
+.flux-gallery-swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.flux-gallery-swiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+  height: auto;
+}
+
+.flux-gallery-swiper .swiper-slide-shadow-left,
+.flux-gallery-swiper .swiper-slide-shadow-right {
+  background-image: linear-gradient(to left, rgba(0, 229, 255, 0.5), transparent);
+}
+
+.flux-gallery-swiper .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+  transition: all 0.3s ease;
+}
+
+.flux-gallery-swiper .swiper-pagination-bullet-active {
+  background: linear-gradient(90deg, #00E5FF, #0099FF);
+  width: 24px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+.flux-gallery-swiper .swiper-button-next,
+.flux-gallery-swiper .swiper-button-prev {
+  color: #00E5FF;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.flux-gallery-swiper .swiper-button-next:hover,
+.flux-gallery-swiper .swiper-button-prev:hover {
+  background: rgba(0, 229, 255, 0.2);
+  border-color: rgba(0, 229, 255, 0.6);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.flux-gallery-swiper .swiper-button-next::after,
+.flux-gallery-swiper .swiper-button-prev::after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Responsive adjustments for Swiper */
+@media (max-width: 768px) {
+  .flux-gallery-swiper .swiper-button-next,
+  .flux-gallery-swiper .swiper-button-prev {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .flux-gallery-swiper .swiper-button-next::after,
+  .flux-gallery-swiper .swiper-button-prev::after {
+    font-size: 14px;
+  }
+}
+
+
+/* ========================================
+   SIMPLE GALLERY SWIPER STYLES
+   ======================================== */
+
+.flux-simple-gallery {
+  width: 100%;
+  padding: 20px 0 60px;
+}
+
+.flux-simple-gallery .swiper-slide {
+  height: auto;
+}
+
+.flux-simple-gallery .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+  transition: all 0.3s ease;
+}
+
+.flux-simple-gallery .swiper-pagination-bullet-active {
+  background: linear-gradient(90deg, #00E5FF, #0099FF);
+  width: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.6);
+}
+
+.flux-simple-gallery .swiper-button-next,
+.flux-simple-gallery .swiper-button-prev {
+  color: #00E5FF;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 229, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.flux-simple-gallery .swiper-button-next:hover,
+.flux-simple-gallery .swiper-button-prev:hover {
+  background: rgba(0, 229, 255, 0.2);
+  border-color: rgba(0, 229, 255, 0.8);
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.flux-simple-gallery .swiper-button-next::after,
+.flux-simple-gallery .swiper-button-prev::after {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .flux-simple-gallery .swiper-button-next,
+  .flux-simple-gallery .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .flux-simple-gallery .swiper-button-next::after,
+  .flux-simple-gallery .swiper-button-prev::after {
+    font-size: 16px;
+  }
+}
+
+/* ===== Custom Cinematic Cursor ===== */
+
+* {
+  cursor: none;
+}
+
+#cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+#cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(225, 6, 0, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out;
+  box-shadow: 0 0 20px rgba(225, 6, 0, 0.6);
+}
+
+/* ================= RED AMBIENT CURSOR GLOW ================= */
+#cursor-glow {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(
+    circle,
+    rgba(225, 6, 0, 0.35) 0%,
+    rgba(225, 6, 0, 0.2) 25%,
+    rgba(225, 6, 0, 0.1) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  filter: blur(40px);
+  mix-blend-mode: screen;
+}
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 18s linear infinite;
+}
+

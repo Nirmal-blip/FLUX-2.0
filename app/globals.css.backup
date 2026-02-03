@@ -1,0 +1,377 @@
+@import "tailwindcss";
+
+/* Athletic Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap');
+
+/* Root Variables */
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-orbitron: 'Orbitron', monospace;
+  --font-jetbrains-mono: 'JetBrains Mono', monospace;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-space-grotesk: 'Space Grotesk', sans-serif;
+  --font-rajdhani: 'Rajdhani', sans-serif;
+  --font-jersey: 'Teko', 'Rajdhani', 'Exo 2', 'Arial Black', sans-serif;
+  --font-athletic: 'Oswald', 'Bebas Neue', 'Anton', 'Teko', 'Rajdhani', sans-serif;
+  --font-sporty: 'Russo One', 'Orbitron', 'Exo 2', 'Rajdhani', sans-serif;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
+}
+
+body {
+  background-color: #000;
+  font-family: var(--font-inter);
+}
+
+/* Font Classes */
+.font-inter { font-family: var(--font-inter); }
+.font-orbitron { font-family: var(--font-orbitron); }
+.font-jetbrains-mono { font-family: var(--font-jetbrains-mono); }
+.font-poppins { font-family: var(--font-poppins); }
+.font-space-grotesk { font-family: var(--font-space-grotesk); }
+.font-rajdhani { font-family: var(--font-rajdhani); }
+.font-jersey { font-family: var(--font-jersey); }
+.font-athletic { font-family: var(--font-athletic); }
+.font-sporty { font-family: var(--font-sporty); }
+
+/* Marvel Theme Animations */
+@keyframes marvelShine {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes arcReactor {
+  0% {
+    transform: rotate(0deg) scale(1);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+    box-shadow: 0 0 40px rgba(6, 182, 212, 0.8);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+  }
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Marvel Utility Classes */
+.marvel-gradient {
+  background: linear-gradient(135deg, #D41F2A 0%, #FFD700 50%, #D41F2A 100%);
+  background-size: 200% 200%;
+  animation: marvelShine 3s ease-in-out infinite;
+}
+
+.comic-border {
+  border-style: solid;
+  position: relative;
+}
+
+.hero-aura {
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 40px currentColor;
+}
+
+.arc-reactor {
+  animation: arcReactor 3s linear infinite;
+}
+
+/* FLUX UI Improvements */
+.flux-title-main {
+  font-size: clamp(2rem, 8vw, 4rem);
+  line-height: 1.1;
+}
+
+.flux-title-section {
+  font-size: clamp(1.5rem, 6vw, 3rem);
+  line-height: 1.2;
+}
+
+.flux-subtitle {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  line-height: 1.3;
+}
+
+/* Card Layout Fixes */
+.flux-equal-height-grid {
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+
+.flux-card-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 500px;
+}
+
+.flux-hero-card {
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flux-event-card {
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flux-gallery-card {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .flux-hero-card {
+    min-height: 500px;
+  }
+  
+  .flux-event-card {
+    min-height: 450px;
+  }
+  
+  .flux-gallery-card {
+    min-height: 350px;
+  }
+}
+
+/* Grid Improvements */
+.flux-responsive-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
+}
+
+@media (min-width: 768px) {
+  .flux-responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .flux-responsive-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Utility Classes */
+.flux-text-container {
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.flux-description-container {
+  min-height: 5rem;
+  display: flex;
+  align-items: center;
+}
+
+.flux-tags-container {
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.flux-button-container {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+/* Performance Optimizations */
+.flux-gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Accessibility */
+.flux-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus States */
+.flux-interactive:focus-visible {
+  outline: 2px solid #D41F2A;
+  outline-offset: 2px;
+}
+
+/* Scrollbar Styling */
+.flux-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.flux-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.flux-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #D41F2A, #FFD700);
+  border-radius: 3px;
+}
+
+/* Touch Targets */
+@media (max-width: 768px) {
+  .flux-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Athletic/Sports Theme Styles */
+.athletic-title {
+  font-family: var(--font-athletic);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.sporty-text {
+  font-family: var(--font-sporty);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.jersey-number {
+  font-family: var(--font-jersey);
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.team-name {
+  font-family: var(--font-athletic);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.player-name {
+  font-family: var(--font-sporty);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Athletic Animations */
+@keyframes athleticPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes teamColors {
+  0% { filter: hue-rotate(0deg); }
+  25% { filter: hue-rotate(90deg); }
+  50% { filter: hue-rotate(180deg); }
+  75% { filter: hue-rotate(270deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.athletic-pulse {
+  animation: athleticPulse 2s ease-in-out infinite;
+}
+
+.team-colors {
+  animation: teamColors 4s linear infinite;
+}
+
+/* Athletic Typography Utilities */
+.athletic-heading {
+  font-family: var(--font-athletic);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 0.9;
+}
+
+.sporty-heading {
+  font-family: var(--font-sporty);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.jersey-text {
+  font-family: var(--font-jersey);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Athletic Button Styles */
+.athletic-button {
+  font-family: var(--font-athletic);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+}
+
+.athletic-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Sports Team Colors */
+.team-blue { color: #3B82F6; }
+.team-orange { color: #F97316; }
+.team-red { color: #EF4444; }
+.team-green { color: #10B981; }
+.team-purple { color: #8B5CF6; }
+.team-yellow { color: #F59E0B; }
+
+/* Athletic Gradients */
+.athletic-gradient-blue {
+  background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+}
+
+.athletic-gradient-orange {
+  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+}
+
+.athletic-gradient-multi {
+  background: linear-gradient(135deg, #F97316 0%, #3B82F6 50%, #F97316 100%);
+  background-size: 200% 200%;
+  animation: marvelShine 3s ease-in-out infinite;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .marvel-gradient,
+  .arc-reactor {
+    animation: none;
+  }
+}
