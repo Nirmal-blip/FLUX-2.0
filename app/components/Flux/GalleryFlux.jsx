@@ -6,8 +6,6 @@ import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
-import Tilt from "react-parallax-tilt";
-import { useEffect } from "react";
 
 // Swiper styles
 import "swiper/css";
@@ -28,10 +26,10 @@ export default function GalleryFlux() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen bg-gradient-to-b from-black via-[#120000] to-black px-6 pb-24 overflow-hidden text-white"
+      className="relative min-h-screen bg-transparent px-6 pb-24 overflow-hidden text-white"
     >
       {/* ================= DEADPOOL HEADER ================= */}
-      <div className="relative max-w-6xl mx-auto">
+      <div className="relative max-w-6xl mt-24 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
