@@ -53,13 +53,13 @@ export default function FluxBackground() {
 
             {/* Crisp Rings */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vmin] h-[100vmin] opacity-60">
-                <div className="absolute inset-0 border border-cyan-400/40 rounded-full animate-[spin_60s_linear_infinite]"
+                <div className="absolute inset-0 border border-[#c84f4f] rounded-full animate-[spin_60s_linear_infinite]"
                     style={{ borderStyle: 'dashed', borderWidth: '1px' }} />
 
-                <div className="absolute inset-[10%] border border-cyan-400/30 rounded-full animate-[spin_40s_linear_infinite_reverse]"
+                <div className="absolute inset-[10%] border border-[#c84f4f] rounded-full animate-[spin_40s_linear_infinite_reverse]"
                     style={{ borderTopColor: 'transparent', borderBottomColor: 'transparent' }} />
 
-                <div className="absolute inset-[30%] border-2 border-cyan-300/20 rounded-full animate-[spin_20s_linear_infinite]" />
+                <div className="absolute inset-[30%] border-2 border-[#c84f4f] rounded-full animate-[spin_20s_linear_infinite]" />
 
                 {/* Tech Grid Pattern appearing in background */}
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.1)_1px,transparent_1px)] bg-[size:50px_50px] opacity-30" />
@@ -86,12 +86,12 @@ export default function FluxBackground() {
                 style={{ transform: 'translate(-100px, -100px)' }} // Initial off-screen
             >
                 {/* Spinning Ring */}
-                <div className="absolute inset-0 border border-cyan-400 rounded-full opacity-60 animate-[spin_2s_linear_infinite] border-t-transparent border-l-transparent" />
+                <div className="absolute inset-0 border border-[#e95555] rounded-full opacity-60 animate-[spin_2s_linear_infinite] border-t-transparent border-l-transparent" />
                 {/* Inner Dot */}
-                <div className="absolute inset-0 m-auto w-1 h-1 bg-cyan-400 rounded-full shadow-[0_0_10px_cyan]" />
+                <div className="absolute inset-0 m-auto w-1 h-1 border-[#e95555]  rounded-full shadow-[0_0_10px_cyan]" />
                 {/* Crosshair Lines */}
-                <div className="absolute top-1/2 left-[-10px] w-[calc(100%+20px)] h-px bg-cyan-500/20" />
-                <div className="absolute left-1/2 top-[-10px] h-[calc(100%+20px)] w-px bg-cyan-500/20" />
+                <div className="absolute top-1/2 left-[-10px] w-[calc(100%+20px)] h-px bg-[#561919]" />
+                <div className="absolute left-1/2 top-[-10px] h-[calc(100%+20px)] w-px bg-[#561919]" />
             </div>
 
         </div>

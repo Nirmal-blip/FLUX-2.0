@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 
-export default function FluxCursor({ children }) {
+export default function FluxCursor() {
   useEffect(() => {
     const dot = document.getElementById("cursor-dot");
     const ring = document.getElementById("cursor-ring");
@@ -9,49 +9,46 @@ export default function FluxCursor({ children }) {
 
     if (!dot || !ring || !glow) return;
 
-    let mouseX = 0;
-    let mouseY = 0;
-    let ringX = 0;
-    let ringY = 0;
-    let glowX = 0;
-    let glowY = 0;
+    let x = 0, y = 0;
+    let rx = 0, ry = 0;
+    let gx = 0, gy = 0;
+
+    const RING_SPEED = 0.25;
+    const GLOW_SPEED = 0.15;
 
     const move = (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      x = e.clientX;
+      y = e.clientY;
 
-      // DOT = instant (fastest)
-      dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+      // ✅ DOT EXACT CENTER
+      dot.style.transform =
+        `translate3d(${x - 3}px, ${y - 3}px, 0)`; // 6/2
     };
 
-    const render = () => {
-      // RING = slight lag
-      ringX += (mouseX - ringX) * 0.35;
-      ringY += (mouseY - ringY) * 0.35;
+    const loop = () => {
+      rx += (x - rx) * RING_SPEED;
+      ry += (y - ry) * RING_SPEED;
 
-      // GLOW = more lag
-      glowX += (mouseX - glowX) * 0.18;
-      glowY += (mouseY - glowY) * 0.18;
+      gx += (x - gx) * GLOW_SPEED;
+      gy += (y - gy) * GLOW_SPEED;
 
-      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
-      glow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0)`;
+      ring.style.transform =
+        `translate3d(${rx - 18}px, ${ry - 18}px, 0)`; // 36/2
 
-      requestAnimationFrame(render);
+      glow.style.transform =
+        `translate3d(${gx - 210}px, ${gy - 210}px, 0)`; // 420/2
+
+      requestAnimationFrame(loop);
     };
 
     window.addEventListener("mousemove", move);
-    render();
+    loop();
 
-    return () => {
-      window.removeEventListener("mousemove", move);
-    };
+    return () => window.removeEventListener("mousemove", move);
   }, []);
 
   return (
     <>
-      {children}
-
-      {/* FLUX CURSOR */}
       <div id="cursor-dot" />
       <div id="cursor-ring" />
       <div id="cursor-glow" />

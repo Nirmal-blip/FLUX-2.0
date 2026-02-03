@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { gsap } from "gsap";
-import FluxCursor from "./FluxCursor";
+
 /**
  * HeroFlux — INSOMNIAC EDITION
  * Same logic, same structure
@@ -158,7 +158,7 @@ export default function HeroFlux() {
   return (
     <section
   ref={containerRef}
-  className="relative h-screen w-full bg-black overflow-hidden text-white [perspective:1200px]"
+  className="relative h-screen w-full bg-transparent overflow-hidden text-white [perspective:1200px]"
 >
       {/* ================= NAVBAR ================= */}
       <nav className="absolute top-0 left-0 w-full z-50 flex items-center justify-between px-4 md:px-10 py-4 md:py-6">
@@ -195,7 +195,7 @@ export default function HeroFlux() {
 </button>
       </nav>
       {/* ================= BACKGROUND ================= */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-[#120000]" />
+      <div className="absolute inset-0 bg-transparent " />
 {/* ================= COUNTDOWN TOP CENTER ================= */}
 <div
   className="absolute md:left-1/2 -translate-x-1/2 z-30 md:top-6  top-26 left-3/5 hero-animate"
@@ -404,8 +404,25 @@ export default function HeroFlux() {
           CREATE EXPERIENCES THAT INSPIRE PEOPLE
         </p>
       </div>
+         
+{/* ================= BOTTOM ROUNDED BORDER ================= */}
+<div className="absolute bottom-0 left-0 w-full z-[80] pointer-events-none">
+  <div
+    className="
+      h-[12px]                 
+      w-full
+      bg-white
+      rounded-b-[48px]          
+      shadow-[0_-12px_45px_rgba(255,255,255,0.45)]
+    "
+  />
+</div>
+
+ 
   
     </section>
+
+
    
   );
 }
