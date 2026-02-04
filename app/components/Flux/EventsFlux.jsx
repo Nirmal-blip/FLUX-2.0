@@ -1,398 +1,203 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 import {
   Terminal, Code2, Cpu, Globe, Rocket, Users,
-  Gamepad2, Camera, Music, Zap, ArrowRight,
-  Clock, MapPin, Activity, Wifi,
-  Trophy, Banknote
+  Gamepad2, Camera, Music, Zap,
+  Clock, Banknote, ExternalLink
 } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 
-/**
- * EventsFlux - MISSION PROTOCOLS
- * UI enhanced with comic-style hero visuals
- * ⚠️ LOGIC UNCHANGED
- */
-export default function EventsFlux() {
+export default function EventsPage() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  /* ===================== EVENTS DATA (UNCHANGED) ===================== */
+  const categories = {
+    Coding: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800",
+    Creative: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800",
+    Gaming: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800",
+    Finance: "https://images.unsplash.com/photo-1611974714014-4986a23247f7?q=80&w=800",
+    Adventure: "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=800",
+    Robotics: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800",
+    Engineering: "https://images.unsplash.com/photo-1581092335397-9583ee92d03b?q=80&w=800",
+    Debate: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=800",
+    Innovation: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800",
+    Design: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?q=80&w=800",
+    Entertainment: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800",
+  };
+
+  // Border colors matching the image exactly
+  const borderColors = ["#E11281", "#1D75D6", "#32A852", "#32A852", "#4256DB", "#A7D21F"];
+
   const events = [
-    // Day 1
-    { 
-      id: 1, day: 1, title: "DSA Competition", category: "Coding", icon: Code2, 
-      color: "#E10600", description: "Algorithmic optimization.", 
-      time: "04:00 PM - 07:00 PM",
-      prize1: "₹2,000 +", prize2: "₹1,000 +", prize3: "₹500 +", 
-      registrationFee: "₹100/User" 
-    },
-    { 
-      id: 2, day: 1, title: "Hackathon", category: "Coding", icon: Terminal, 
-      color: "#E10600", description: "24-hour development sprint.", 
-      time: "06:00 PM - 06:00 PM",
-      prize1: "₹5,000 +", prize2: "₹3,000 + ", prize3: "₹2,000 +", 
-      registrationFee: "₹400/Team" 
-    },
-    { 
-      id: 3, day: 1, title: "Meme Competition", category: "Creative", icon: Zap, 
-      color: "#E10600", description: "Digital humor synthesis.", 
-      time: "0&:00 PM - 08:00 PM",
-      prize1: "₹1,000 +", prize2: "₹500 +", prize3: "₹0", 
-      registrationFee: "Free" 
-    },
-    { 
-      id: 4, day: 1, title: "E-sports Free Fire", category: "Gaming", icon: Gamepad2, 
-      color: "#E10600", description: "Competitive tactical gaming.", 
-      time: "09:00 PM Onwards",
-      prize1: "₹2,000 +", prize2: "₹0", prize3: "₹0", 
-      registrationFee: "₹300/Squad" 
-    },
-    { 
-      id: 5, day: 1, title: "E-sports BGMI", category: "Gaming", icon: Gamepad2, 
-      color: "#E10600", description: "Competitive tactical gaming.", 
-      time: "09:00 PM Onwards",
-      prize1: "₹2,000 +", prize2: "₹0", prize3: "₹0", 
-      registrationFee: "₹300/Squad" 
-    },
-
-    // Day 2
-    { 
-      id: 6, day: 2, title: "Debugging", category: "Coding", icon: Terminal, 
-      color: "#E10600", description: "Code error elimination.", 
-      time: "09:00 AM - 12:00 PM",
-      prize1: "₹1,500 +", prize2: "₹1,000 +", prize3: "₹500 +", 
-      registrationFee: "₹200/User" 
-    },
-    { 
-      id: 7, day: 2, title: "Virtual Stock Market", category: "Finance", icon: Activity, 
-      color: "#E10600", description: "Market simulation exercise.", 
-      time: "9:00 AM - 10:00 AM",
-      prize1: "₹1,000 +", prize2: "₹500 +", prize3: "₹0", 
-      registrationFee: "₹100/User" 
-    },
-    { 
-      id: 8, day: 2, title: "Tech Scavenger Hunt", category: "Adventure", icon: MapPin, 
-      color: "#E10600", description: "Geo-location puzzle sequence.", 
-      time: "10:00 AM - 03:00 PM",
-      prize1: "₹1,500 +", prize2: "₹1,000 +", prize3: "₹0", 
-      registrationFee: "₹100/Team" 
-    },
-    { 
-      id: 9, day: 2, title: "Robo Soccer", category: "Robotics", icon: Cpu, 
-      color: "#E10600", description: "Autonomous drone sport.", 
-      time: "03:00 PM - 06:00 PM",
-      prize1: "₹8,000 +", prize2: "₹4,000 +", prize3: "₹2,000 +", 
-      registrationFee: "₹300/Team" 
-    },
-    { 
-      id: 10, day: 2, title: "Bridge Building", category: "Engineering", icon: Rocket, 
-      color: "#E10600", description: "Structural integrity test.", 
-      time: "07:00 PM - 10:00 PM",
-      prize1: "₹2,000 +", prize2: "₹1,000 +", prize3: "₹500 +", 
-      registrationFee: "₹200/Team" 
-    },
-    { 
-      id: 11, day: 2, title: "Youth Parliament", category: "Debate", icon: Users, 
-      color: "#E10600", description: "Legislative simulation.", 
-      time: "10:00 PM Onwards",
-      prize1: "₹0", prize2: "₹0", prize3: "₹0", 
-      registrationFee: "Free" 
-    },
-    { 
-      id: 12, day: 2, title: "Photography", category: "Creative", icon: Camera, 
-      color: "#E10600", description: "Visual perspective capture.", 
-      time: "All Day",
-      prize1: "₹1,000 +", prize2: "₹500 +", prize3: "₹0", 
-      registrationFee: "₹100/User" 
-    },
-
-    // Day 3
-    { 
-      id: 13, day: 3, title: "Startup Idea Pitch", category: "Innovation", icon: Rocket, 
-      color: "#E10600", description: "Venture proposal defense (SSIP).", 
-      time: "09:00 AM Onwards",
-      prize1: "₹50,000 +", prize2: "₹30,000 +", prize3: "₹20,000 +", 
-      registrationFee: "Free" 
-    },
-    { 
-      id: 14, day: 3, title: "CAD Challenge", category: "Design", icon: Globe, 
-      color: "#E10600", description: "Interface Design Logic", 
-      time: "09:00 AM - 12:00 PM",
-      prize1: "₹2,000 +", prize2: "₹1,000 +", prize3: "₹500 +", 
-      registrationFee: "₹100/User" 
-    },
-    { 
-      id: 15, day: 3, title: "UI/UX Challenge", category: "Design", icon: Globe, 
-      color: "#E10600", description: "Interface aesthetics logic.", 
-      time: "01:00 PM - 03:00 PM",
-      prize1: "₹2,000 +", prize2: "₹1,000 +", prize3: "₹0", 
-      registrationFee: "₹100/User" 
-    },
-    { 
-      id: 16, day: 3, title: "Circuit Debugging", category: "Engineering", icon: Cpu, 
-      color: "#E10600", description: "Hardware diagnostics.", 
-      time: "02:00 PM - 04:00 PM",
-      prize1: "₹2,000 +", prize2: "₹1,000 +", prize3: "₹0", 
-      registrationFee: "₹200/Team" 
-    },
-    { 
-      id: 17, day: 3, title: "IoT Challenge", category: "Engineering", icon: Wifi, 
-      color: "#E10600", description: "Connected systems protocol.", 
-      time: "04:00 PM - 07:00 PM",
-      prize1: "₹8,000 +", prize2: "₹4,000 +", prize3: "₹2,000 +", 
-      registrationFee: "₹300/Team" 
-    },
-    // { 
-    //   id: 17, day: 3, title: "Artist Performance", category: "Entertainment", icon: Mic2, 
-    //   color: "#E10600", description: "Live auditory showcase.", 
-    //   time: "06:00 PM Onwards",
-    //   prize1: "N/A", prize2: "N/A", prize3: "N/A", 
-    //   registrationFee: "Pass Req." 
-    // },
-    { 
-      id: 17, day: 3, title: "DJ Night", category: "Entertainment", icon: Music, 
-      color: "#E10600", description: "Sonic frequency celebration.", 
-      time: "08:00 PM Onwards",
-      prize1: "N/A", prize2: "N/A", prize3: "N/A", 
-      registrationFee: "Free", noRegistration: true 
-    },
+    { id: 1, day: 1, title: "DSA Competition", category: "Coding", icon: Code2, description: "Algorithmic optimization.", time: "04:00 PM - 07:00 PM", prize1: "₹2,000", prize2: "₹1,000", prize3: "₹500", registrationFee: "₹100/User" },
+    { id: 2, day: 1, title: "Hackathon", category: "Coding", icon: Terminal, description: "24-hour development sprint.", time: "06:00 PM - 06:00 PM", prize1: "₹5,000", prize2: "₹3,000", prize3: "₹2,000", registrationFee: "₹400/Team" },
+    { id: 3, day: 1, title: "Meme Competition", category: "Creative", icon: Zap, description: "Digital humor synthesis.", time: "07:00 PM - 08:00 PM", prize1: "₹1,000", prize2: "₹500", prize3: "₹0", registrationFee: "Free" },
+    { id: 4, day: 1, title: "E-sports Free Fire", category: "Gaming", icon: Gamepad2, description: "Competitive tactical gaming.", time: "09:00 PM Onwards", prize1: "₹2,000", prize2: "₹0", prize3: "₹0", registrationFee: "₹300/Squad" },
+    { id: 5, day: 1, title: "E-sports BGMI", category: "Gaming", icon: Gamepad2, description: "Competitive tactical gaming.", time: "09:00 PM Onwards", prize1: "₹2,000", prize2: "₹0", prize3: "₹0", registrationFee: "₹300/Squad" },
+    { id: 6, day: 2, title: "Debugging", category: "Coding", icon: Terminal, description: "Code error elimination.", time: "09:00 AM - 12:00 PM", prize1: "₹1,500", prize2: "₹1,000", prize3: "₹500", registrationFee: "₹200/User" },
+    { id: 7, day: 2, title: "Virtual Stock Market", category: "Finance", icon: Rocket, description: "Market simulation exercise.", time: "9:00 AM - 10:00 AM", prize1: "₹1,000", prize2: "₹500", prize3: "₹0", registrationFee: "₹100/User" },
+    { id: 8, day: 2, title: "Tech Scavenger Hunt", category: "Adventure", icon: Globe, description: "Geo-location puzzle sequence.", time: "10:00 AM - 03:00 PM", prize1: "₹1,500", prize2: "₹1,000", prize3: "₹0", registrationFee: "₹100/Team" },
+    { id: 9, day: 2, title: "Robo Soccer", category: "Robotics", icon: Cpu, description: "Autonomous drone sport.", time: "03:00 PM - 06:00 PM", prize1: "₹8,000", prize2: "₹4,000", prize3: "₹2,000", registrationFee: "₹300/Team" },
+    { id: 10, day: 2, title: "Bridge Building", category: "Engineering", icon: Rocket, description: "Structural integrity test.", time: "07:00 PM - 10:00 PM", prize1: "₹2,000", prize2: "₹1,000", prize3: "₹500", registrationFee: "₹200/Team" },
+    { id: 11, day: 2, title: "Youth Parliament", category: "Debate", icon: Users, description: "Legislative simulation.", time: "10:00 PM Onwards", prize1: "₹0", prize2: "₹0", prize3: "₹0", registrationFee: "Free" },
+    { id: 12, day: 2, title: "Photography", category: "Creative", icon: Camera, description: "Visual perspective capture.", time: "All Day", prize1: "₹1,000", prize2: "₹500", prize3: "₹0", registrationFee: "₹100/User" },
+    { id: 13, day: 3, title: "Startup Idea Pitch", category: "Innovation", icon: Rocket, description: "Venture proposal defense (SSIP).", time: "09:00 AM Onwards", prize1: "₹50k", prize2: "₹30k", prize3: "₹20k", registrationFee: "Free" },
+    { id: 14, day: 3, title: "CAD Challenge", category: "Design", icon: Globe, description: "Interface Design Logic", time: "09:00 AM - 12:00 PM", prize1: "₹2,000", prize2: "₹1,000", prize3: "₹500", registrationFee: "₹100/User" },
+    { id: 15, day: 3, title: "UI/UX Challenge", category: "Design", icon: Globe, description: "Interface aesthetics logic.", time: "01:00 PM - 03:00 PM", prize1: "₹2,000", prize2: "₹1,000", prize3: "₹0", registrationFee: "₹100/User" },
+    { id: 16, day: 3, title: "Circuit Debugging", category: "Engineering", icon: Cpu, description: "Hardware diagnostics.", time: "02:00 PM - 04:00 PM", prize1: "₹2,000", prize2: "₹1,000", prize3: "₹0", registrationFee: "₹200/Team" },
+    { id: 17, day: 3, title: "IoT Challenge", category: "Engineering", icon: Globe, description: "Connected systems protocol.", time: "04:00 PM - 07:00 PM", prize1: "₹8,000", prize2: "₹4,000", prize3: "₹2,000", registrationFee: "₹300/Team" },
+    { id: 18, day: 3, title: "DJ Night", category: "Entertainment", icon: Music, description: "Sonic frequency celebration.", time: "08:00 PM Onwards", prize1: "N/A", prize2: "N/A", prize3: "N/A", registrationFee: "Free", noRegistration: true },
   ];
 
-
-  const day1Events = events.filter(e => e.day === 1);
-  const day2Events = events.filter(e => e.day === 2);
-  const day3Events = events.filter(e => e.day === 3);
-
   return (
-    <div
-      ref={ref}
-      className="relative py-24 px-6 min-h-screen overflow-hidden text-white"
-    >
-      {/* ================= COMIC HERO DECORATION ================= */}
-{/* ================= TRON HEADER PANEL ================= */}
-<div className="relative z-10 max-w-7xl mx-auto mb-24">
-
-  <div
-    className="
-      relative
-      overflow-hidden
-      rounded-2xl
-      border border-cyan-400/40
-      bg-gradient-to-r from-[#03151a] via-[#020c10] to-[#03151a]
-      shadow-[0_0_80px_rgba(0,229,255,0.25)]
-    "
-  >
-    {/* 🔹 CYAN GRID OVERLAY */}
-    <div
-      className="absolute inset-0 opacity-[0.08]"
-      style={{
-        backgroundImage: `
-          linear-gradient(#00E5FF 1px, transparent 1px),
-          linear-gradient(90deg, #00E5FF 1px, transparent 1px)
-        `,
-        backgroundSize: "32px 32px",
-      }}
-    />
-
-    {/* 🔹 LEFT TRON HERO */}
-    <img
-      src="/images/fluxImages/tronboy.png"
-      alt="Tron Hero Left"
-      className="
-        hidden md:block
-        absolute left-[0px] bottom-[-40px]
-        w-[320px]
-        opacity-90
-        drop-shadow-[0_0_80px_rgba(0,229,255,0.6)]
-        pointer-events-none
-      "
-    />
-
-    {/* 🔹 RIGHT TRON HERO */}
-    <img
-      src="/images/fluxImages/trongirl.png"
-      alt="Tron Hero Right"
-      className="
-        hidden md:block
-        absolute right-[0px] bottom-[-50px]
-        w-[320px]
-        opacity-90
-        drop-shadow-[0_0_80px_rgba(0,229,255,0.6)]
-        pointer-events-none
-      "
-    />
-
-    {/* 🔹 CENTER CONTENT */}
-    <div className="relative z-10 px-10 py-20 text-center">
-
-      {/* Subtitle */}
-      <div className="flex justify-center items-center gap-2 text-cyan-400 font-mono text-sm tracking-widest mb-4">
-        <Activity className="w-4 h-4 animate-pulse" />
-        <span>SYSTEM INITIALIZED</span>
+    <main className="min-h-screen bg-transparent text-white relative font-sans overflow-x-hidden">
+      
+      {/* 🔹 IMAGE STYLE HEXAGON GRID */}
+      <div className="fixed inset-0 pointer-events-none z-0 opacity-20" 
+        style={{ 
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='70' viewBox='0 0 40 70'%3E%3Cpath d='M20 0L40 11.5v23L20 46L0 34.5v-23L20 0z' fill='none' stroke='%231FD28B' stroke-width='0.5'/%3E%3C/svg%3E")`,
+          backgroundSize: '80px',
+          maskImage: 'radial-gradient(ellipse at bottom, black, transparent 70%)'
+        }}>
       </div>
 
-      {/* TITLE */}
-      <h2
-        className="
-          text-5xl md:text-7xl lg:text-8xl
-          font-black
-          uppercase
-          tracking-tight
-          text-white
-        "
-        style={{
-          fontFamily: "var(--font-rajdhani)",
-          textShadow: `
-            0 0 10px rgba(0,229,255,0.9),
-            0 0 30px rgba(0,229,255,0.6),
-            0 0 80px rgba(0,229,255,0.4)
-          `,
-        }}
-      >
-        MISSION <br /> PROTOCOLS
-      </h2>
+      <div className="relative z-10 container mx-auto px-6 py-16"> 
+        
+      
 
-      {/* Divider */}
-      <div className="mt-6 flex justify-center">
-        <div className="h-[2px] w-48 bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
-      </div>
-
-      {/* Tag */}
-      <div className="mt-6 text-[11px] font-mono text-cyan-300 tracking-widest">
-        TRON GRID • FLUX 2025
-      </div>
-    </div>
-  </div>
-</div>
-
-
-      {/* ================= BACKGROUND GRID ================= */}
-      <div
-        className="absolute inset-0 z-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `
-            linear-gradient(#E10600 1px, transparent 1px),
-            linear-gradient(90deg, #E10600 1px, transparent 1px)
-          `,
-          backgroundSize: "30px 30px",
-        }}
-      />
-
-  
-      {/* ================= DAYS ================= */}
-      <div className="relative z-10 max-w-7xl mx-auto space-y-20">
-        <EventDaySection day={1} title="PHASE 01 // INITIATION" events={day1Events} inView={inView} />
-        <EventDaySection day={2} title="PHASE 02 // EXECUTION" events={day2Events} inView={inView} delay={0.2} />
-        <EventDaySection day={3} title="PHASE 03 // CONCLUSION" events={day3Events} inView={inView} delay={0.4} />
-      </div>
-    </div>
-  );
-}
-
-/* ================= DAY SECTION (UNCHANGED LOGIC) ================= */
-
-function EventDaySection({ day, title, events, inView, delay = 0 }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay, duration: 0.5 }}
-    >
-      <div className="flex items-center gap-4 mb-8 border-l-4 border-[#E10600] bg-black/40 p-4">
-        <h3 className="text-2xl md:text-3xl font-black uppercase tracking-widest">
-          {title}
-        </h3>
-        <div className="ml-auto text-[10px] font-mono text-[#E10600] border border-[#E10600]/30 px-2 py-1">
-          SECTOR {day}-A
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 gap-4">
-        {events.map((event, i) => (
-          <MissionPanel key={event.id} event={event} />
-        ))}
-      </div>
-    </motion.div>
-  );
-}
-
-/* ================= PANEL (UNCHANGED LOGIC) ================= */
-
-function MissionPanel({ event }) {
-  const [isHovered, setIsHovered] = useState(false);
-  const Icon = event.icon;
-  const hasPrizes = event.prize1 !== "N/A";
-
-  return (
-    <Tilt tiltMaxAngleX={2} tiltMaxAngleY={2} scale={1.02}>
-      <div
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        className="relative overflow-hidden rounded-xl border border-white/10 bg-black/80"
-      >
-        <div
-          className="absolute left-0 top-0 h-full transition-all"
-          style={{
-            width: isHovered ? "8px" : "4px",
-            background: event.color,
-          }}
-        />
-
-        <div className="relative z-10 p-8 grid md:grid-cols-3 gap-8 items-center">
-          <div className="md:col-span-2">
-            <h3
-              className="text-4xl md:text-5xl font-black uppercase"
-              style={{ color: isHovered ? event.color : "white" }}
-            >
-              {event.title}
-            </h3>
-
-            <p className="mt-4 text-gray-400">{event.description}</p>
-
-            <div className="flex flex-wrap gap-6 mt-6 text-sm text-gray-300">
-              <span className="flex items-center gap-2">
-                <Clock className="w-4 h-4" /> {event.time}
-              </span>
-              <span className="flex items-center gap-2">
-                <Banknote className="w-4 h-4" /> {event.registrationFee}
-              </span>
+        {/* 🔹 PHASE WRAPPER (Exact Rectangular Phase Bar) */}
+        {[1, 2, 3].map((dayNum) => (
+          <div key={dayNum} className="mb-24">
+            <div className="mb-12 border border-white/20 bg-black/60 p-6 flex flex-col justify-center" ref={ref}>
+               <h2 className="text-4xl font-black tracking-tighter italic uppercase leading-none">PHASE 0{dayNum}</h2>
+               <p className="text-sm font-mono opacity-50 tracking-[0.2em] mt-1 italic uppercase">(MISSION_INITIALIZED_0{dayNum})</p>
             </div>
 
-            {hasPrizes && (
-              <div className="mt-6 flex gap-6 text-sm font-mono">
-                <span className="flex items-center gap-2 text-yellow-400">
-                  <Trophy className="w-4 h-4" /> 1st: {event.prize1}
-                </span>
-                <span className="flex items-center gap-2 text-gray-300">
-                  <Trophy className="w-4 h-4" /> 2nd: {event.prize2}
-                </span>
-                <span className="flex items-center gap-2 text-amber-700">
-                  <Trophy className="w-4 h-4" /> 3rd: {event.prize3}
-                </span>
-              </div>
-            )}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+              {events
+                .filter((e) => e.day === dayNum)
+                .map((event, idx) => (
+                  <CyberCard 
+                    key={event.id} 
+                    event={event} 
+                    bgImg={categories[event.category]} 
+                    accentColor={borderColors[idx % borderColors.length]} 
+                  />
+                ))}
+            </div>
           </div>
-
-          <div className="flex justify-end">
-            {!event.noRegistration ? (
-              <Link href={`/flux-registration/${event.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
-                <button className="bg-[#E10600] px-8 py-3 font-black uppercase">
-                  Register
-                </button>
-              </Link>
-            ) : (
-              <span className="uppercase tracking-widest text-gray-500">Free Entry</span>
-            )}
-          </div>
-        </div>
+        ))}
       </div>
+    </main>
+  );
+}
+
+function CyberCard({ event, bgImg, accentColor }) {
+  const [hovered, setHovered] = useState(false);
+  const Icon = event.icon;
+
+  return (
+    <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8} scale={1.02} transitionSpeed={1500}>
+      <motion.div 
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        className="relative aspect-[3/4.2] w-full group overflow-hidden border-2 bg-black flex flex-col p-4 shadow-2xl transition-all duration-300"
+        style={{ borderColor: hovered ? accentColor : `${accentColor}88` }}
+      >
+        {/* Top Metadata Bar (Ditto Image) */}
+        <div className="flex justify-between items-center mb-3">
+            <div className="bg-[#D02020] px-2 py-0.5 text-[8px] font-black italic shadow-lg text-white">CONFG</div>
+            <span className="text-[10px] font-bold tracking-widest opacity-60 italic uppercase text-white">{event.category}</span>
+            <div className="flex gap-1">
+                <div className="w-1.5 h-1.5 border border-white/40"></div>
+                <div className="w-4 h-4" style={{ backgroundColor: `${accentColor}44`, border: `1px solid ${accentColor}` }}></div>
+            </div>
+        </div>
+
+        {/* Main Image Viewport with Frame Glow (Ditto Image) */}
+        <div className="relative aspect-[4/3] w-full overflow-hidden border border-white/10 group-hover:border-white/30 transition-all">
+            <img 
+                src={bgImg} 
+                alt={event.title}
+                className={`h-full w-full object-cover transition-all duration-700 ${hovered ? 'scale-110 brightness-[0.8]' : 'brightness-[0.5]'}`}
+            />
+            
+            {/* Inner Frame Glow Lines */}
+            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 z-20" style={{ borderColor: accentColor }}></div>
+            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 z-20" style={{ borderColor: accentColor }}></div>
+            
+            {/* Bottom Fade Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
+            
+            {/* Icon Floating Overlay */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 opacity-20 group-hover:opacity-100 transition-opacity">
+                <Icon size={40} className="text-white" />
+            </div>
+        </div>
+
+        {/* Content Area (Title & Info) */}
+        <div className="mt-8 flex flex-col justify-end flex-grow">
+            <h3 className="text-3xl font-black tracking-tighter uppercase leading-[0.9] italic mb-6">
+                {event.title}
+            </h3>
+
+            {/* Hover Reveal Description */}
+            <AnimatePresence>
+                {hovered && (
+                    <motion.p 
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="text-[10px] text-gray-400 uppercase font-mono mb-4 line-clamp-2"
+                    >
+                        {event.description}
+                    </motion.p>
+                )}
+            </AnimatePresence>
+
+            <div className="space-y-2 mb-4">
+                <div className="flex items-center gap-3 text-[10px] font-mono font-bold text-gray-300">
+                    <Clock size={12} style={{ color: accentColor }} /> {event.time}
+                </div>
+                <div className="flex items-center gap-3 text-[10px] font-black tracking-widest uppercase italic" style={{ color: accentColor }}>
+                    <Banknote size={12} className="text-white" /> {event.registrationFee}
+                </div>
+            </div>
+
+            {/* Deployment Button */}
+            {!event.noRegistration ? (
+                <Link href={`/flux-registration/${event.title.toLowerCase().replace(/ /g, "-")}`} className="z-30 relative">
+                    <motion.button 
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full py-2 bg-white text-black font-black text-[10px] tracking-[0.3em] uppercase transition-all flex items-center justify-center gap-2 hover:bg-red-600 hover:text-white"
+                    >
+                        INITIATE ENTRY <ExternalLink size={12} />
+                    </motion.button>
+                </Link>
+            ) : (
+                <div className="w-full py-2 border border-white/20 text-white/30 text-center text-[10px] font-mono tracking-widest uppercase">
+                    OPEN_ACCESS
+                </div>
+            )}
+
+            {/* Bottom Right Signal Bars (Ditto Image) */}
+            <div className="absolute bottom-4 right-4 flex items-end gap-1 opacity-60">
+                <div className="w-1.5 h-1.5 bg-white opacity-20"></div>
+                <div className="w-1.5 h-3 bg-white opacity-40"></div>
+                <div className="w-1.5 h-5" style={{ backgroundColor: accentColor }}></div>
+            </div>
+        </div>
+
+        {/* Hover Background Flare */}
+        <div className="absolute -bottom-24 -left-24 w-48 h-48 blur-[100px] rounded-full opacity-0 group-hover:opacity-20 transition-opacity pointer-events-none" style={{ backgroundColor: accentColor }}></div>
+      </motion.div>
     </Tilt>
   );
 }
