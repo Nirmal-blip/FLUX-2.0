@@ -11,9 +11,9 @@ import EventsFlux from "../components/Flux/EventsFlux";
 import TeamFlux from "../components/Flux/TeamFlux";
 import FooterFlux from "../components/Flux/FooterFlux";
 import PageTransition from "../components/ui/PageTransition";
-import FluxCursor from "../components/Flux/FluxCursor";
 import FluxBackground from "../components/Flux/FluxBackground";
-
+import GamingPage from "../components/Flux/GamingRealmPage";
+import EventsBanner from "../components/Flux/EventsBanner"
 export default function FluxFest() {
   useEffect(() => {
     AOS.init({
@@ -38,14 +38,21 @@ export default function FluxFest() {
             <HeroFlux />
           </section>
 
+      
+
+          <section id="gaming">
+            <GamingPage/>
+          </section>
+
+
+          <section id="Banner">
+            <EventsBanner/>
+          </section>
+
           <section id="gallery" data-aos="fade-up">
             <GalleryFlux />
           </section>
-
-          <section id="events" data-aos="fade-up">
-            <EventsFlux />
-          </section>
-
+          
           <section id="team" data-aos="fade-up">
             <TeamFlux />
           </section>
@@ -53,10 +60,9 @@ export default function FluxFest() {
           <section id="contact">
             <FooterFlux />
           </section>
+          
         </div>
 
-        {/* 🔥 CURSOR MUST BE LAST & OUTSIDE */}
-        <FluxCursor />
       </div>
     </PageTransition>
   );
