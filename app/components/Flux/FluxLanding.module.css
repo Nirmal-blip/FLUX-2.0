@@ -192,7 +192,7 @@
 
   .airBalloon {
     position: absolute;
-    top: 5vh;            /* ⬅️ SKY ME LAO */
+    top: 26vh;            /* ⬅️ SKY ME LAO */
     left: 10vw;
     width: 160px;
     z-index: 4;          /* ⬅️ front building ke upar */
@@ -207,7 +207,7 @@
 
   @media (max-width: 700px) {
     .airShipRight {
-      top: 16vh;
+      top: 26vh;
       right: 4vw;
       width: 140px;
     }
