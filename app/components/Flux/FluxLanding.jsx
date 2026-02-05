@@ -33,7 +33,8 @@ export default function FluxLanding() {
       </div>
 
       {/* Right Airship */}
-      <div className={styles.airShipRight}>
+      <div className={`hidden md:block ${styles.airShipRight}`}
+      >
         <img src="/images/fluxImages/air-ship.png" alt="airship" />
       </div>
 
