@@ -108,16 +108,19 @@ export default function RefinedMissionPortal() {
                    <div className="h-[1px] w-8 bg-yellow-500"></div>
                 </div>
                 
-                <div className="flex items-center gap-6 group">
+               
             
                    <Link href="/FluxEvents"  className="text-5xl md:text-8xl font-black italic tracking-tight uppercase leading-none text-white group-hover:text-yellow-500 transition-colors duration-500">
+                   <div className="flex items-center gap-6 group">
                      EVENTS
-                   </Link>
-                   <div className="bg-yellow-500 p-2 md:p-4 text-black rotate-45 group-hover:rotate-0 transition-transform duration-500">
+                     <div className="bg-yellow-500 p-2 md:p-4 text-black rotate-45 group-hover:rotate-0 transition-transform duration-500">
                       <MoveRight size={32} className="-rotate-45 group-hover:rotate-0 transition-transform duration-500" />
                    </div>
+                   </div>
+                   </Link>
+                   
                   
-                </div>
+                
                 
                 <p className="mt-6 text-[10px] font-mono text-gray-400 uppercase tracking-widest leading-relaxed max-w-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                    Enter the arena and test your tactical logic against the top-tier operational protocols.

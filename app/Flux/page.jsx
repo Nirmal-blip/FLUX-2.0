@@ -14,6 +14,7 @@ import PageTransition from "../components/ui/PageTransition";
 import FluxBackground from "../components/Flux/FluxBackground";
 import GamingPage from "../components/Flux/GamingRealmPage";
 import EventsBanner from "../components/Flux/EventsBanner"
+import FluxLanding from "../components/Flux/FluxLanding";
 export default function FluxFest() {
   useEffect(() => {
     AOS.init({
@@ -49,10 +50,16 @@ export default function FluxFest() {
             <EventsBanner/>
           </section>
 
+          <section id="flux" data-aos="fade-up">
+            <FluxLanding/>
+          </section>
+          
           <section id="gallery" data-aos="fade-up">
             <GalleryFlux />
           </section>
           
+          
+
           <section id="team" data-aos="fade-up">
             <TeamFlux />
           </section>

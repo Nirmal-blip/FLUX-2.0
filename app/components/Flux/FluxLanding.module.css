@@ -1,0 +1,217 @@
+.pageWrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ================= BACKGROUND ================= */
+.bg {
+  position: absolute;
+  inset: 0;
+  background: url("/images/fluxImages/bg.jpg") center/cover no-repeat;
+  z-index: 1;
+  filter: blur(2.5px);
+  transform: scale(1.05);
+}
+
+/* ================= COMMON LAYERS ================= */
+.buildingBack,
+.buildingFront,
+.road {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ================= TRACK ================= */
+.track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.track img {
+  height: 100%;
+  flex-shrink: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ================= BACK BUILDING ================= */
+.buildingBack {
+  bottom: -90px;
+  height: 75vh;
+  z-index: 2;
+  filter: blur(2px);
+}
+
+.buildingBack .track {
+  animation: backMove 125s linear infinite;
+}
+
+/* ================= AIR BALLOON ================= */
+.airBalloon {
+  position: absolute;
+  top: 18%;
+  left: 12%;
+  width: clamp(120px, 12vw, 220px);
+  z-index: 10; /* between back & front buildings */
+  pointer-events: none;
+  animation: balloonFloat 18s ease-in-out infinite;
+  filter: blur(0.2px);
+  opacity: 0.9;
+}
+
+.airBalloon img {
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+
+/* ================= RIGHT AIRSHIP ================= */
+.airShipRight {
+  position: absolute;
+  top: 12vh;               /* sky area */
+  right: 8vw;              /* RIGHT SIDE */
+  width: clamp(280px, 18vw, 260px);
+  z-index: 10;            /* balloon jaisa depth */
+  pointer-events: none;
+  animation: airshipFloat 18s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  opacity: 0.9;
+  filter: blur(0.1px);
+}
+
+.airShipRight img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* ================= FRONT BUILDING ================= */
+.buildingFront {
+  bottom: -10px;
+  height: 60vh;
+  z-index: 3;
+}
+
+.buildingFront .track {
+  animation: frontMove 15s linear infinite;
+}
+
+/* ================= ROAD ================= */
+.road {
+  bottom: 0;
+  height: 22vh;
+  z-index: 4;
+}
+
+.road .track {
+  animation: roadMove 6s linear infinite;
+}
+
+.road::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
+  pointer-events: none;
+}
+
+/* ================= STATIC CAR / BIKE ================= */
+.car {
+  position: fixed;
+  bottom: 5%;
+  right: 8%;
+  width: clamp(200px, 26vw, 380px);
+  z-index: 6;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes backMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes frontMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes roadMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes balloonFloat {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, -18px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes airshipFloat {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-25px, -14px); /* slow drift */
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+
+/* ================= MOBILE ================= */
+@media (max-width: 700px) {
+  .buildingBack {
+    height: 70vh;
+  }
+
+  .buildingFront {
+    bottom: -10px;
+  height: 55vh;   /* ⬅️ SKY SPACE CREATE */
+  z-index: 3;
+  }
+
+  .road {
+    height: 18vh;
+  }
+
+  .airBalloon {
+    position: absolute;
+    top: 5vh;            /* ⬅️ SKY ME LAO */
+    left: 10vw;
+    width: 160px;
+    z-index: 4;          /* ⬅️ front building ke upar */
+    pointer-events: none;
+  }
+  
+
+  .car {
+    right: 4%;
+    bottom: 2%;
+  }
+
+  @media (max-width: 700px) {
+    .airShipRight {
+      top: 16vh;
+      right: 4vw;
+      width: 140px;
+    }
+  }
+  
+}
+
