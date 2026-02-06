@@ -154,12 +154,15 @@ className="w-full h-full rounded-lg opacity-60 group-hover:opacity-100 group-hov
 
     
       {/* --- SCROLL TOP BUTTON --- */}
+     
+      {/* Scroll Top */}
       <motion.button
         onClick={scrollToTop}
-        className="fixed bottom-10 right-10 p-5 bg-yellow-400 border-[6px] border-black shadow-[6px_6px_0px_#000] hover:bg-red-600 hover:text-white transition-all z-[100]"
-        whileHover={{ y: -10 }}
+        className="fixed bottom-8 right-8 p-3 bg-red-600 rounded-sm hover:bg-red-500 transition-colors z-50 shadow-[0_0_20px_rgba(220,38,38,0.5)]"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
       >
-        <ArrowUp className="w-8 h-8 stroke-[4px]" />
+        <ArrowUp className="w-5 h-5 text-white" />
       </motion.button>
     </footer>
   );

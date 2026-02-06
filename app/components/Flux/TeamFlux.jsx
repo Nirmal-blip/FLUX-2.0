@@ -63,7 +63,7 @@ const TeamFlux = () => {
                     <h2 className="text-4xl font-[1000] uppercase italic bg-black text-white inline-block px-4 py-1 border-4 border-black shadow-[6px_6px_0px_#ef4444]">
                         Core Squad
                     </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                         {secretaries.map((member, i) => (
                             <ComicCard key={i} member={member} index={i} />
                         ))}

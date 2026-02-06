@@ -55,7 +55,7 @@ export default function GalleryFlux() {
           <motion.div 
             animate={{ scale: [1, 1.1, 1] }}
             transition={{ repeat: Infinity, duration: 2 }}
-            className="absolute -top-10 -right-20 bg-yellow-400 border-[6px] border-black px-8 py-4 font-[1000] text-4xl italic rotate-12 shadow-[8px_8px_0px_#000] z-20"
+            className="absolute -top-10 md:-right-20 -right-5 bg-yellow-400 border-[6px] border-black md:px-8 md:py-4 px-6 py-3 font-[1000] md:text-4xl text-3xl italic rotate-12 shadow-[8px_8px_0px_#000] z-20"
           >
             SMILE!
           </motion.div>
@@ -96,7 +96,7 @@ export default function GalleryFlux() {
       </div>
 
       {/* --- COMIC GRID (TILED PANELS) --- */}
-      <div className="max-w-7xl mx-auto px-4 z-10 relative">
+      <div className="max-w-7xl mx-auto hidden md:block px-4 z-10 relative">
         <div className="flex items-center gap-6 mb-16">
           <h4 className="text-5xl font-[1000] italic uppercase tracking-tighter border-b-8 border-red-600">MISSION LOGS</h4>
           <div className="hidden md:block flex-1 border-t-8 border-dashed border-black opacity-20" />

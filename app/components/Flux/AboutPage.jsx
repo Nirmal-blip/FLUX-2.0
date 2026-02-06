@@ -107,7 +107,7 @@ export default function FluxAbout() {
             whileInView={{ scale: 1, opacity: 1, rotate: -2 }}
             className="bg-transparent  p-8  skew-x-[-5deg]"
           >
-            <h2 className="mb-4 text-xs md:text-sm font-black uppercase tracking-[0.4em] text-yellow-300">
+            <h2 className="mb-4 hidden md:block text-xs md:text-sm font-black uppercase tracking-[0.4em] text-yellow-300">
               IITRAM AHMEDABAD PRESENTS
             </h2>
             <h1 className="text-8xl md:text-[14rem] font-[1000] italic leading-none text-white drop-shadow-[8px_8px_0px_#000]">
