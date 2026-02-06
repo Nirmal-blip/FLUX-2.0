@@ -135,11 +135,7 @@ export default function RefinedMissionPortal() {
         </div>
 
       </div>
-       {/* ================= BOTTOM BORDER (Original) ================= */}
-       <div className="absolute bottom-0 left-0 w-full z-[80] pointer-events-none">
-        <div className="h-[12px] w-full bg-white rounded-b-[48px] shadow-[0_-12px_45px_rgba(255,255,255,0.45)]" />
-      </div>
-
+       
       {/* 🔹 DYNAMIC SCANLINE & NOISE */}
       <div className="absolute inset-0 pointer-events-none z-30 opacity-[0.02] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
     </div>

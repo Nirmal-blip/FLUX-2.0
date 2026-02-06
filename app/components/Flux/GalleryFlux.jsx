@@ -4,77 +4,90 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Autoplay, Navigation } from "swiper/modules";
+import { Autoplay, EffectCreative } from "swiper/modules";
 
 // Swiper styles
 import "swiper/css";
-import "swiper/css/effect-fade";
+import "swiper/css/effect-creative";
 
 export default function GalleryFlux() {
   const images = [ 
-    { id: 1, src: "/images/fluxImages/CPJ_9046.JPG", category: "EVENT LOG", desc: "Opening Ceremony Protocol" },
-    { id: 2, src: "/images/fluxImages/CPJ_9053.JPG", category: "WORKSHOP", desc: "Neural Network Training" },
-    { id: 3, src: "/images/fluxImages/CPJ_9055.JPG", category: "COMPETITION", desc: "Hackathon Mainframe Access" },
-    { id: 4, src: "/images/fluxImages/CPJ_9174.JPG", category: "EVENT LOG", desc: "Tech Exhibition Scan" },
-    { id: 5, src: "/images/fluxImages/CPJ_9245.JPG", category: "MOMENT", desc: "Team Synergy Analysis" },
-    { id: 6, src: "/images/fluxImages/IMG_4229.JPG", category: "VICTORY", desc: "Award Distribution Sequence" },
-    { id: 7, src: "/images/fluxImages/IMG_4252.JPG", category: "WORKSHOP", desc: "Keynote Data Transfer" },
-    { id: 8, src: "/images/fluxImages/IMG_5233.JPG", category: "MOMENT", desc: "Networking Node Active" },
-    { id: 9, src: "/images/fluxImages/IMG_5238.JPG", category: "EVENT LOG", desc: "Cultural Frequency Test" },
-    { id: 10, src: "/images/fluxImages/IMG_5242.JPG", category: "VICTORY", desc: "Grand Finale Output" },
+    { id: 1, src: "/images/fluxImages/CPJ_9046.JPG", category: "OPENING", desc: "MISSION START" },
+    { id: 2, src: "/images/fluxImages/CPJ_9053.JPG", category: "WORKSHOP", desc: "INTEL GATHERING" },
+    { id: 3, src: "/images/fluxImages/CPJ_9055.JPG", category: "HACKATHON", desc: "CODE BREAKER" },
+    { id: 4, src: "/images/fluxImages/CPJ_9174.JPG", category: "EXPO", desc: "GADGET SCAN" },
+    { id: 5, src: "/images/fluxImages/CPJ_9245.JPG", category: "TEAM", desc: "THE ALLIANCE" },
+    { id: 6, src: "/images/fluxImages/IMG_4229.JPG", category: "VICTORY", desc: "AWARD CEREMONY" },
+    { id: 7, src: "/images/fluxImages/IMG_4252.JPG", category: "KEYNOTE", desc: "MASTER PLAN" },
+    { id: 8, src: "/images/fluxImages/IMG_5233.JPG", category: "MOMENT", desc: "SECRET FILES" },
+    { id: 9, src: "/images/fluxImages/IMG_5238.JPG", category: "CULTURAL", desc: "ENERGY SURGE" },
+    { id: 10, src: "/images/fluxImages/IMG_5242.JPG", category: "FINALE", desc: "THE CLIMAX" },
   ];
 
-
   return (
-    <section className="relative min-h-screen bg-transparent text-white px-4 pb-20 overflow-hidden">
+    <section className="relative min-h-screen bg-white text-black py-24 px-4 overflow-hidden border-t-[12px] border-black selection:bg-red-600 selection:text-white">
       
-      {/* --- BACKGROUND HUD OVERLAY --- */}
-      <div className="absolute inset-0 pointer-events-none opacity-30 z-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
-        <div className="absolute top-20 left-10 w-32 h-32 border-l border-t border-red-600/40" />
-        <div className="absolute bottom-20 right-10 w-32 h-32 border-r border-b border-red-600/40" />
-      </div>
+      {/* --- RETRO COMIC HALFTONE OVERLAY --- */}
+      <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#000_2px,transparent_2px)] [background-size:10px_10px] z-0" />
 
-      {/* --- HERO SECTION --- */}
-      <div className="relative pt-24 pb-12 flex flex-col items-center justify-center z-10">
+      {/* --- HERO SECTION: DEADPOOL ENTRY --- */}
+      <div className="relative mb-24 flex flex-col items-center justify-center z-10">
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="relative"
+          initial={{ opacity: 0, x: -100, rotate: -10 }}
+          whileInView={{ opacity: 1, x: 0, rotate: -5 }}
+          className="relative group"
         >
-          {/* Large Background Text */}
-          <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black text-red-900/10 uppercase tracking-tighter select-none whitespace-nowrap">
-            VISUAL DB
+          {/* Action Background Text */}
+          <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[18vw] font-[1000] text-black/5 italic uppercase tracking-tighter select-none whitespace-nowrap z-0">
+            SNAPSHOT!
           </h2>
           
-          {/* Deadpool Image */}
+          {/* Main Hero Image */}
           <Image
             src="/images/fluxImages/deadpool.png"
             alt="Deadpool"
-            width={600}
-            height={600}
-            className="relative z-10 drop-shadow-[0_0_80px_rgba(225,6,0,0.4)]"
+            width={500}
+            height={500}
+            className="relative z-10 drop-shadow-[15px_15px_0px_#ef4444] group-hover:scale-105 transition-transform duration-500"
           />
+
+          {/* Action Bubble */}
+          <motion.div 
+            animate={{ scale: [1, 1.1, 1] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="absolute -top-10 -right-20 bg-yellow-400 border-[6px] border-black px-8 py-4 font-[1000] text-4xl italic rotate-12 shadow-[8px_8px_0px_#000] z-20"
+          >
+            SMILE!
+          </motion.div>
         </motion.div>
       </div>
 
-      {/* --- MAIN SLIDER (Simplified) --- */}
-      <div className="max-w-6xl mx-auto mb-24 z-10 relative">
+      {/* --- FEATURED PANELS (SWIPER) --- */}
+      <div className="max-w-6xl mx-auto mb-32 z-10 relative">
         <Swiper
-          modules={[EffectFade, Autoplay]}
-          effect="fade"
-          autoplay={{ delay: 4000 }}
+          modules={[Autoplay, EffectCreative]}
+          effect={'creative'}
+          creativeEffect={{
+            prev: { shadow: true, translate: ['-120%', 0, -500] },
+            next: { shadow: true, translate: ['120%', 0, -500] },
+          }}
+          autoplay={{ delay: 3000 }}
           loop
-          className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
+          className="border-[10px] border-black shadow-[20px_20px_0px_#000] overflow-hidden"
         >
-          {images.map((img) => (
+          {images.slice(0, 5).map((img) => (
             <SwiperSlide key={img.id}>
-              <div className="relative h-[400px] md:h-[600px] w-full">
-                <Image src={img.src} alt={img.desc} fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
-                <div className="absolute bottom-12 left-12">
-                  <p className="text-red-600 font-mono tracking-[0.5em] mb-2">{img.category}</p>
-                  <h3 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter">{img.desc}</h3>
+              <div className="relative h-[450px] md:h-[650px] w-full bg-black group">
+                <Image src={img.src} alt={img.desc} fill className="object-cover opacity-90 group-hover:scale-110 transition-transform duration-[2s]" />
+                
+                {/* Comic Label */}
+                <div className="absolute top-10 left-10 bg-red-600 text-white px-6 py-2 font-black italic uppercase border-4 border-black -rotate-3 z-20 shadow-[5px_5px_0px_#000]">
+                  {img.category}
+                </div>
+
+                {/* Speech Box Description */}
+                <div className="absolute bottom-10 right-10 bg-white border-[6px] border-black p-6 max-w-sm shadow-[10px_10px_0px_#facc15] z-20">
+                  <h3 className="text-3xl font-[1000] italic uppercase tracking-tighter leading-none">{img.desc}</h3>
                 </div>
               </div>
             </SwiperSlide>
@@ -82,31 +95,37 @@ export default function GalleryFlux() {
         </Swiper>
       </div>
 
-      {/* --- GRID (Clean Scale Hover, No Flip) --- */}
+      {/* --- COMIC GRID (TILED PANELS) --- */}
       <div className="max-w-7xl mx-auto px-4 z-10 relative">
-        <div className="flex items-center gap-6 mb-12">
-          <h4 className="text-xl font-bold uppercase tracking-widest text-red-600">Data Stream</h4>
-          <div className="h-px flex-1 bg-gradient-to-r from-red-600/50 to-transparent" />
+        <div className="flex items-center gap-6 mb-16">
+          <h4 className="text-5xl font-[1000] italic uppercase tracking-tighter border-b-8 border-red-600">MISSION LOGS</h4>
+          <div className="hidden md:block flex-1 border-t-8 border-dashed border-black opacity-20" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {images.map((img) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          {images.map((img, i) => (
             <motion.div
               key={img.id}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="relative aspect-[3/4] rounded-xl overflow-hidden border border-white/5 bg-[#111] group cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              whileHover={{ y: -15, rotate: i % 2 === 0 ? 2 : -2 }}
+              className="relative aspect-[3/4] border-[6px] border-black bg-white shadow-[8px_8px_0px_#000] overflow-hidden group cursor-pointer"
             >
               <Image 
                 src={img.src} 
                 alt={img.desc} 
                 fill 
-                className="object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" 
+                className="object-cover transition-all duration-500 group-hover:scale-110" 
               />
-              {/* Overlay HUD effect */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-red-600/50 transition-all duration-300" />
-              <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent">
-                <p className="text-[10px] font-mono text-red-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">FILE_{img.id}00X</p>
-                <h5 className="text-sm font-bold uppercase truncate">{img.desc}</h5>
+              
+              {/* Halftone Overlay on Hover */}
+              <div className="absolute inset-0 bg-red-600/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+
+              {/* Panel Badge */}
+              <div className="absolute bottom-4 left-4 right-4 bg-white border-4 border-black p-2 transform translate-y-20 group-hover:translate-y-0 transition-transform duration-300 shadow-[4px_4px_0px_#000]">
+                <p className="text-[10px] font-black text-red-600 uppercase mb-1">DATA_STREAM_{img.id}</p>
+                <h5 className="text-xs font-[1000] uppercase truncate">{img.desc}</h5>
               </div>
             </motion.div>
           ))}

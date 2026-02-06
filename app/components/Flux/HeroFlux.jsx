@@ -155,7 +155,7 @@ export default function HeroFlux() {
 
       {/* ================= CTA BUTTON (Original 3D UI) ================= */}
       <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-[60] hero-animate">
-        <Link href="#events">
+        <Link href="/FluxEvents">
           <button className="group relative md:px-14 md:py-5 px-8 py-2 uppercase tracking-[0.35em] text-sm font-black text-white bg-[#E10600] rounded-sm transition-all duration-300 ease-out [transform-style:preserve-3d] hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(225,6,0,0.6)] active:translate-y-1">
             <span className="absolute inset-0 bg-[#b30000] translate-y-1 -z-10 rounded-sm opacity-80" />
             <span className="absolute inset-0 bg-[#8b0000] translate-y-2 -z-20 rounded-sm opacity-60" />

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
@@ -11,239 +11,120 @@ const TeamFlux = () => {
     });
 
     const presidents = [
-        {
-            name: "SATYAM KUMAR",
-            role: "PRESIDENT",
-            image: "/images/Senate/Satyam.jpg",
-            tag: "COMMANDER"
-        },
-        {
-            name: "SHREY CHAUDHARY",
-            role: "VICE PRESIDENT",
-            image: "/images/Senate/Shrey.png",
-            tag: "COMMANDER"
-        },
-        {
-            name: "SAKSHI SUREKA",
-            role: "VICE PRESIDENT",
-            image: "/images/Senate/Sakshi.jpg",
-            tag: "COMMANDER"
-        }
+        { name: "SATYAM KUMAR", role: "PRESIDENT", image: "/images/Senate/Satyam.jpg", power: "STRATEGY" },
+        { name: "SHREY CHAUDHARY", role: "VICE PRESIDENT", image: "/images/Senate/Shrey.png", power: "EXECUTION" },
+        { name: "SAKSHI SUREKA", role: "VICE PRESIDENT", image: "/images/Senate/Sakshi.jpg", power: "CREATIVITY" }
     ];
 
     const secretaries = [
-        { name: "MANISH", role: "GEN. SECRETARY", image: "/images/GS_technical/Manish.png", tag: "OFFICER" },
-        { name: "NIRMAL", role: "GEN. SECRETARY", image: "/images/GS_technical/Nirmal.png", tag: "OFFICER" },
-        { name: "RIYA", role: "GEN. SECRETARY", image: "/images/GS_technical/Riya.png", tag: "OFFICER" },
-        { name: "SHIVESH", role: "GEN. SECRETARY", image: "/images/GS_technical/Shivesh.png", tag: "OFFICER" }
+        { name: "MANISH", role: "GEN. SEC", image: "/images/GS_technical/Manish.png" },
+        { name: "NIRMAL", role: "GEN. SEC", image: "/images/GS_technical/Nirmal.png" },
+        { name: "RIYA", role: "GEN. SEC", image: "/images/GS_technical/Riya.png" },
+        { name: "SHIVESH", role: "GEN. SEC", image: "/images/GS_technical/Shivesh.png" }
     ];
 
     return (
-        <section ref={ref} className="relative py-24 px-6 bg-black/10 overflow-hidden font-rajdhani min-h-screen">
-            {/* Background Grid & Scanlines */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
-            <div className="absolute inset-0 bg-[url('/scanline.png')] opacity-10 pointer-events-none" />
+        <section ref={ref} className="relative py-24 px-6 bg-white text-black overflow-hidden min-h-screen border-t-[12px] border-black selection:bg-yellow-400">
+            {/* --- COMIC HALFTONE PATTERN --- */}
+            <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#000_2px,transparent_2px)] [background-size:12px_12px]" />
 
-            <div className="relative z-10 max-w-7xl mx-auto space-y-24">
-
-                {/* Main Header - ANIMATED MAINFRAME PERSONNEL */}
-                <div className="text-center mb-20 relative">
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={inView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.5 }}
-                        className="inline-block mb-2"
+            <div className="relative z-10 max-w-7xl mx-auto">
+                
+                {/* --- HEADER: ACTION TITLE --- */}
+                <div className="mb-24 relative">
+                    <motion.div 
+                        initial={{ scale: 0.8, rotate: -5, opacity: 0 }}
+                        animate={inView ? { scale: 1, rotate: 0, opacity: 1 } : {}}
+                        className="inline-block bg-red-600 text-white px-10 py-6 border-[8px] border-black shadow-[12px_12px_0px_#000] skew-x-[-10deg]"
                     >
-                        <div className="h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent w-full mb-4 opacity-50" />
+                        <h1 className="text-6xl md:text-9xl font-[1000] italic uppercase tracking-tighter drop-shadow-[4px_4px_0px_#fbbf24]">
+                            THE ASSEMBLE
+                        </h1>
                     </motion.div>
-
-                    {/* Glitch Title */}
-                    <GlitchTitle text="MAINFRAME PERSONNEL" trigger={inView} />
-
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={inView ? { opacity: 1 } : {}}
-                        transition={{ delay: 1 }}
-                        className="flex items-center justify-center gap-4 text-cyan-500 font-mono text-sm tracking-[0.5em] mt-4"
-                    >
-                        <span className="animate-pulse text-red-500">//</span>
-                        <Typewriter text="ACCESS GRANTED" trigger={inView} delay={1000} />
-                    </motion.div>
+                    <p className="mt-8 font-black text-2xl uppercase italic tracking-widest border-l-8 border-black pl-6">
+                        // ELITE PERSONNEL IDENTIFIED //
+                    </p>
                 </div>
 
-                {/* 1. PRESIDENTS COUNCIL */}
-                <div>
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={inView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="flex items-center gap-4 mb-12 border-l-4 border-yellow-500 pl-6"
-                    >
-                        <h2 className="text-3xl md:text-5xl font-black text-yellow-500 tracking-widest uppercase relative">
-                            <span className="relative z-10">PRESIDENTS COUNCIL</span>
-                            <span className="absolute top-0 left-0 text-yellow-500/20 blur-sm z-0">PRESIDENTS COUNCIL</span>
-                        </h2>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* --- 1. PRESIDENTS (THE BIG PANELS) --- */}
+                <div className="space-y-12 mb-32">
+                    <h2 className="text-4xl font-[1000] uppercase italic bg-yellow-400 inline-block px-4 py-1 border-4 border-black shadow-[6px_6px_0px_#000]">
+                        The Commanders
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                         {presidents.map((member, i) => (
-                            <TeamCard
-                                key={i}
-                                member={member}
-                                color="text-yellow-500"
-                                borderColor="border-yellow-500"
-                                bgGlow="bg-yellow-500/10"
-                                delay={0.4 + i * 0.15}
-                            />
+                            <ComicCard key={i} member={member} index={i} isBig />
                         ))}
                     </div>
                 </div>
 
-                {/* 2. GENERAL SECRETARIES */}
-                <div>
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={inView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="flex items-center gap-4 mb-12 border-l-4 border-cyan-500 pl-6"
-                    >
-                        <h2 className="text-3xl md:text-5xl font-black text-cyan-500 tracking-widest uppercase relative">
-                            <span className="relative z-10">GENERAL SECRETARIES</span>
-                            <span className="absolute top-0 left-0 text-cyan-500/20 blur-sm z-0">GENERAL SECRETARIES</span>
-                        </h2>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {/* --- 2. SECRETARIES (THE CORE TEAM) --- */}
+                <div className="space-y-12">
+                    <h2 className="text-4xl font-[1000] uppercase italic bg-black text-white inline-block px-4 py-1 border-4 border-black shadow-[6px_6px_0px_#ef4444]">
+                        Core Squad
+                    </h2>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {secretaries.map((member, i) => (
-                            <TeamCard
-                                key={i}
-                                member={member}
-                                color="text-cyan-500"
-                                borderColor="border-cyan-500"
-                                bgGlow="bg-cyan-500/10"
-                                delay={0.6 + i * 0.1}
-                            />
+                            <ComicCard key={i} member={member} index={i} />
                         ))}
                     </div>
                 </div>
-
             </div>
+
+            {/* --- FLOATING COMIC BUBBLE --- */}
+            <motion.div 
+                animate={{ y: [0, -20, 0] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+                className="hidden lg:block absolute bottom-20 right-10 bg-white text-black font-[1000] text-5xl px-8 py-4 border-[6px] border-black shadow-[8px_8px_0px_#ef4444] rotate-12"
+            >
+                HEROES!
+            </motion.div>
         </section>
     );
 };
 
-// --- Sub-Components for Animations ---
-
-const GlitchTitle = ({ text, trigger }) => {
+const ComicCard = ({ member, index, isBig }) => {
     return (
-        <div className="relative inline-block">
-            <motion.h1
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={trigger ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, ease: "circOut" }}
-                className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-gray-200 relative z-10"
-                style={{ textShadow: "0 0 40px rgba(220, 38, 38, 0.5)" }}
-            >
-                {text}
-            </motion.h1>
-            {/* Glitch Layers */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={trigger ? { opacity: [0, 1, 0, 1, 0], x: [-5, 5, -2, 0] } : {}}
-                transition={{ duration: 0.4, delay: 0.2 }}
-                className="absolute top-0 left-0 w-full h-full text-red-500 opacity-50 mix-blend-screen z-0"
-                style={{ clipPath: "polygon(0 0, 100% 0, 100% 45%, 0 45%)", transform: "translate(-2px, -2px)" }}
-            >
-                {text}
-            </motion.div>
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={trigger ? { opacity: [0, 1, 0, 1, 0], x: [5, -5, 2, 0] } : {}}
-                transition={{ duration: 0.4, delay: 0.3 }}
-                className="absolute top-0 left-0 w-full h-full text-cyan-500 opacity-50 mix-blend-screen z-0"
-                style={{ clipPath: "polygon(0 55%, 100% 55%, 100% 100%, 0 100%)", transform: "translate(2px, 2px)" }}
-            >
-                {text}
-            </motion.div>
-        </div>
+        <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="group relative"
+        >
+            {/* BLACK PANEL BORDER */}
+            <div className={`relative overflow-hidden border-[8px] border-black bg-white transition-all duration-300 group-hover:-translate-y-4 group-hover:translate-x-4 shadow-[12px_12px_0px_#000] group-hover:shadow-[0px_0px_0px_#000] ${isBig ? 'aspect-[3/4]' : 'aspect-square'}`}>
+                
+                {/* IMAGE: NO GRAYSCALE */}
+                <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+
+                {/* OVERLAY PANEL TEXT */}
+                <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black to-transparent pt-20">
+                    <div className="bg-yellow-400 border-4 border-black px-3 py-1 inline-block -rotate-3 mb-2 group-hover:rotate-0 transition-transform">
+                        <span className="font-black text-xs uppercase tracking-tighter">{member.role}</span>
+                    </div>
+                    <h3 className="text-3xl font-[1000] italic uppercase text-white leading-none tracking-tighter drop-shadow-[3px_3px_0px_#ef4444]">
+                        {member.name}
+                    </h3>
+                </div>
+            </div>
+
+            {/* ACTION "POW" TAG (PRESIDENTS ONLY) */}
+            {isBig && (
+                <div className="absolute -top-4 -left-4 z-20 bg-red-600 text-white px-3 py-1 font-black italic border-4 border-black rotate-[-15deg] group-hover:scale-125 transition-transform">
+                    {member.power}!
+                </div>
+            )}
+
+            {/* OFFSET DECORATION BACKGROUND */}
+            <div className="absolute inset-0 border-[8px] border-red-600 -z-10 translate-y-4 -translate-x-4" />
+        </motion.div>
     );
 };
-
-const Typewriter = ({ text, trigger, delay }) => {
-    const [display, setDisplay] = useState("");
-
-    useEffect(() => {
-        if (!trigger) return;
-        let current = "";
-        let i = 0;
-        const startTimeout = setTimeout(() => {
-            const interval = setInterval(() => {
-                current += text[i];
-                setDisplay(current);
-                i++;
-                if (i === text.length) clearInterval(interval);
-            }, 50); // Speed
-            return () => clearInterval(interval);
-        }, delay || 0);
-        return () => clearTimeout(startTimeout);
-    }, [trigger, text, delay]);
-
-    return <span>{display}</span>;
-}
-
-
-const TeamCard = ({ member, color, borderColor, bgGlow, delay }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 50, rotateX: -10 }}
-        whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-        transition={{ delay, duration: 0.6, type: "spring", stiffness: 50 }}
-        viewport={{ once: true }}
-        className="group relative bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition-all duration-300 overflow-hidden hover:z-10"
-    >
-        {/* Holographic Border Effect */}
-        <div className={`absolute inset-0 border-2 ${borderColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30`}
-            style={{ boxShadow: `0 0 20px ${color.includes('cyan') ? 'rgba(6,182,212,0.4)' : 'rgba(234,179,8,0.4)'}, inset 0 0 10px ${color.includes('cyan') ? 'rgba(6,182,212,0.2)' : 'rgba(234,179,8,0.2)'}` }}
-        />
-
-        {/* Top Tag */}
-        <div className="absolute top-4 left-4 z-20 px-2 py-0.5 bg-black/80 backdrop-blur-sm border border-white/20 text-[10px] uppercase font-bold tracking-widest text-gray-300 group-hover:text-white group-hover:border-white/50 transition-colors">
-            {member.tag}
-        </div>
-
-        {/* Image Area with Grayscale Effect */}
-        <div className="relative aspect-square w-full overflow-hidden border-b border-white/5 mx-auto bg-zinc-800">
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent z-10 opacity-40 group-hover:opacity-0 transition-opacity duration-500" />
-
-            {/* Scanlines Overlay - Fades out on hover for clarity */}
-            <div className="absolute inset-0 z-10 bg-[url('/scanline.png')] opacity-30 pointer-events-none group-hover:opacity-10 transition-opacity" />
-
-            <Image
-                src={member.image}
-                alt={member.name}
-                fill
-                className="object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-110"
-            />
-        </div>
-
-        {/* Content */}
-        <div className="p-6 relative z-20 bg-zinc-900 group-hover:bg-zinc-800/50 transition-colors">
-            <h3 className="text-2xl font-black text-white uppercase tracking-wider mb-1 font-space-grotesk">
-                {member.name}
-            </h3>
-            <p className={`text-xs font-bold tracking-[0.2em] uppercase ${color} flex items-center gap-2`}>
-                <span className={`w-2 h-2 rounded-sm ${color.replace('text', 'bg')}`} />
-                {member.role}
-            </p>
-
-            {/* Tech Decoration */}
-            <div className="absolute bottom-4 right-4 flex gap-1">
-                <div className={`w-1 h-3 ${color.replace('text', 'bg')} opacity-20 group-hover:opacity-100 transition-opacity delay-75`} />
-                <div className={`w-1 h-3 ${color.replace('text', 'bg')} opacity-20 group-hover:opacity-100 transition-opacity delay-100`} />
-                <div className={`w-1 h-3 ${color.replace('text', 'bg')} opacity-20 group-hover:opacity-100 transition-opacity delay-150`} />
-            </div>
-        </div>
-
-    </motion.div>
-)
 
 export default TeamFlux;

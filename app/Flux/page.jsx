@@ -7,7 +7,6 @@ import "aos/dist/aos.css";
 // FLUX Components
 import HeroFlux from "../components/Flux/HeroFlux";
 import GalleryFlux from "../components/Flux/GalleryFlux";
-import EventsFlux from "../components/Flux/EventsFlux";
 import TeamFlux from "../components/Flux/TeamFlux";
 import FooterFlux from "../components/Flux/FooterFlux";
 import PageTransition from "../components/ui/PageTransition";
@@ -15,6 +14,7 @@ import FluxBackground from "../components/Flux/FluxBackground";
 import GamingPage from "../components/Flux/GamingRealmPage";
 import EventsBanner from "../components/Flux/EventsBanner"
 import FluxLanding from "../components/Flux/FluxLanding";
+import Concert from "../components/Flux/Concert";
 export default function FluxFest() {
   useEffect(() => {
     AOS.init({
@@ -50,9 +50,15 @@ export default function FluxFest() {
             <EventsBanner/>
           </section>
 
+          <section id="concert">
+            <Concert/>
+          </section>
+
           <section id="flux" data-aos="fade-up">
             <FluxLanding/>
           </section>
+
+        
           
           <section id="gallery" data-aos="fade-up">
             <GalleryFlux />
