@@ -147,14 +147,14 @@ export default function HeroFlux() {
       {/* ================= CHARACTER (Fixed Alignment) ================= */}
       <div
   ref={spideyRef}
-  className={`bottom-0 left-1/2 -translate-x-1/2 z-20 hero-animate
+  className={`bottom-0 left-1/2 -translate-x-1/2 z-20 md:hero-animate
     ${isMobile ? "fixed" : "absolute"}
   `}
 >
         <img
           src="/images/fluxImages/spiderman.png"
           alt="Spider-Man"
-          className="spidey-img w-[100vw] sm:w-[50vw] md:w-[50vw] lg:w-[40vw] max-w-[520px] lg:max-w-[480px]  h-auto object-contain will-change-transform drop-shadow-[0_-40px_80px_rgba(225,6,0,0.6)]"
+          className="spidey-img w-[100vw] sm:w-[50vw] md:w-[50vw] lg:w-[40vw] max-w-[520px] lg:max-w-[480px]  h-auto md:object-contain md:will-change-transform drop-shadow-[0_-40px_80px_rgba(225,6,0,0.6)]"
         />
       </div>
 
