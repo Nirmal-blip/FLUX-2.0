@@ -77,11 +77,15 @@ const LoadingScreen = ({ isLoading, pageName }) => {
                 transition={{ duration: 1.2, ease: [0.87, 0, 0.13, 1] }}
                 className="relative w-1/2 h-full z-10 overflow-hidden"
               >
-                <img 
-                  src="/images/fluxImages/loadingbg1.png" 
-                  className="absolute h-full w-[100%] max-w-none object-cover grayscale-[20%]" 
-                  alt="bg-left" 
-                />
+  <img
+  src="/images/fluxImages/loadingbg1.png"
+  className="hidden md:block w-full h-full bg-red-600 object-cover"
+/>
+
+<img
+  src="/images/fluxImages/mobilebg1.png"
+  className="block md:hidden w-full h-full bg-[#ae2527] object-contain"
+/>
                 <div className="absolute inset-0 bg-red-950/20" />
               </motion.div>
 
@@ -94,7 +98,12 @@ const LoadingScreen = ({ isLoading, pageName }) => {
               >
                 <img 
                   src="/images/fluxImages/loadingbg2.png" 
-                  className="absolute h-full w-[100%] max-w-none object-cover  grayscale-[20%]" 
+                  className="absolute h-full md:block hidden w-[100%] max-w-none object-cover bg-black  grayscale-[20%]" 
+                  alt="bg-right" 
+                />
+                <img 
+                  src="/images/fluxImages/mobilebg2.png" 
+                  className="absolute h-full md:hidden block w-[100%] max-w-none object-cover bg-black  grayscale-[20%]" 
                   alt="bg-right" 
                 />
                 <div className="absolute inset-0 bg-black/50" />
