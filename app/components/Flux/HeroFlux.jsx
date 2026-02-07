@@ -14,7 +14,15 @@ export default function HeroFlux() {
     minutes: 0,
     seconds: 0,
   });
+  const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  
   // 1. Countdown Logic (Original)
   useEffect(() => {
     const deadline = new Date("2026-03-27T00:00:00").getTime();
@@ -59,6 +67,7 @@ export default function HeroFlux() {
 
   // 3. Pro Parallax (Stabilized Center)
   useEffect(() => {
+    if (isMobile) return; // ✅ MOBILE = NO PARALLAX
     const handleMove = (e) => {
       const { innerWidth, innerHeight } = window;
       const xPercent = (e.clientX / innerWidth - 0.5);
@@ -137,9 +146,11 @@ export default function HeroFlux() {
 
       {/* ================= CHARACTER (Fixed Alignment) ================= */}
       <div
-        ref={spideyRef}
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 hero-animate [transform-style:preserve-3d]"
-      >
+  ref={spideyRef}
+  className={`bottom-0 left-1/2 -translate-x-1/2 z-20 hero-animate
+    ${isMobile ? "fixed" : "absolute"}
+  `}
+>
         <img
           src="/images/fluxImages/spiderman.png"
           alt="Spider-Man"
