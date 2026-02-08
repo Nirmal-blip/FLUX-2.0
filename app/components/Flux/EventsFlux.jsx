@@ -18,25 +18,30 @@ export default function EventsPage() {
   });
 
   const categories = {
-    Coding: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800",
-    Creative: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800",
-    Gaming: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800",
-    Finance: "https://images.unsplash.com/photo-1611974714014-4986a23247f7?q=80&w=800",
-    Adventure: "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=800",
-    Robotics: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800",
-    Engineering: "https://images.unsplash.com/photo-1581092335397-9583ee92d03b?q=80&w=800",
-    Debate: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=800",
-    Innovation: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800",
-    Design: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?q=80&w=800",
-    Entertainment: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800",
+    Coding: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
+    Creative: "/events/meme.jpg",
+    Gaming: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80",
+    Finance: "/events/stock.jpg",
+    Adventure: "/events/sca.avif",
+    Robotics: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
+    Engineering: "/events/bridge.jpeg",
+    Debate: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
+    UIUX:"/events/UIUX.jpeg",
+    Innovation: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+    Design: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&w=800&q=80",
+    Entertainment: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80",
+    Model: "/events/CAD.jpg", // Fixed this link
+    StartUp:"/events/startup.jpg",
+    circuit: "/events/circuit.jpeg",
+    iot:"/events/iot.jpeg"
   };
 
   // Border colors matching the image exactly
   const borderColors = ["#E11281", "#1D75D6", "#32A852", "#32A852", "#4256DB", "#A7D21F"];
 
   const events = [
-    { id: 1, day: 1, title: "DSA Competition", category: "Coding", icon: Code2, description: "Algorithmic optimization.", time: "04:00 PM - 07:00 PM", prize1: "₹2,000", prize2: "₹1,000", prize3: "₹500", registrationFee: "₹100/User" },
-    { id: 2, day: 1, title: "Hackathon", category: "Coding", icon: Terminal, description: "24-hour development sprint.", time: "06:00 PM - 06:00 PM", prize1: "₹5,000", prize2: "₹3,000", prize3: "₹2,000", registrationFee: "₹400/Team" },
+    { id: 1, day: 1, title: "Algorush", category: "Coding", icon: Code2, description: "DSA competition.", time: "04:00 PM - 07:00 PM", prize1: "₹2,000", prize2: "₹1,000", prize3: "₹500", registrationFee: "₹100/User" },
+    { id: 2, day: 1, title: "NeuraCode", category: "Coding", icon: Terminal, description: "24-hour hackathon sprint.", time: "06:00 PM - 06:00 PM", prize1: "₹5,000", prize2: "₹3,000", prize3: "₹2,000", registrationFee: "₹400/Team" },
     { id: 3, day: 1, title: "Meme Competition", category: "Creative", icon: Zap, description: "Digital humor synthesis.", time: "07:00 PM - 08:00 PM", prize1: "₹1,000", prize2: "₹500", prize3: "₹0", registrationFee: "Free" },
     { id: 4, day: 1, title: "E-sports Free Fire", category: "Gaming", icon: Gamepad2, description: "Competitive tactical gaming.", time: "09:00 PM Onwards", prize1: "₹2,000", prize2: "₹0", prize3: "₹0", registrationFee: "₹300/Squad" },
     { id: 5, day: 1, title: "E-sports BGMI", category: "Gaming", icon: Gamepad2, description: "Competitive tactical gaming.", time: "09:00 PM Onwards", prize1: "₹2,000", prize2: "₹0", prize3: "₹0", registrationFee: "₹300/Squad" },
@@ -47,11 +52,11 @@ export default function EventsPage() {
     { id: 10, day: 2, title: "Bridge Building", category: "Engineering", icon: Rocket, description: "Structural integrity test.", time: "07:00 PM - 10:00 PM", prize1: "₹2,000", prize2: "₹1,000", prize3: "₹500", registrationFee: "₹200/Team" },
     { id: 11, day: 2, title: "Youth Parliament", category: "Debate", icon: Users, description: "Legislative simulation.", time: "10:00 PM Onwards", prize1: "₹0", prize2: "₹0", prize3: "₹0", registrationFee: "Free" },
     { id: 12, day: 2, title: "Photography", category: "Creative", icon: Camera, description: "Visual perspective capture.", time: "All Day", prize1: "₹1,000", prize2: "₹500", prize3: "₹0", registrationFee: "₹100/User" },
-    { id: 13, day: 3, title: "Startup Idea Pitch", category: "Innovation", icon: Rocket, description: "Venture proposal defense (SSIP).", time: "09:00 AM Onwards", prize1: "₹50k", prize2: "₹30k", prize3: "₹20k", registrationFee: "Free" },
-    { id: 14, day: 3, title: "CAD Challenge", category: "Design", icon: Globe, description: "Interface Design Logic", time: "09:00 AM - 12:00 PM", prize1: "₹2,000", prize2: "₹1,000", prize3: "₹500", registrationFee: "₹100/User" },
-    { id: 15, day: 3, title: "UI/UX Challenge", category: "Design", icon: Globe, description: "Interface aesthetics logic.", time: "01:00 PM - 03:00 PM", prize1: "₹2,000", prize2: "₹1,000", prize3: "₹0", registrationFee: "₹100/User" },
-    { id: 16, day: 3, title: "Circuit Debugging", category: "Engineering", icon: Cpu, description: "Hardware diagnostics.", time: "02:00 PM - 04:00 PM", prize1: "₹2,000", prize2: "₹1,000", prize3: "₹0", registrationFee: "₹200/Team" },
-    { id: 17, day: 3, title: "IoT Challenge", category: "Engineering", icon: Globe, description: "Connected systems protocol.", time: "04:00 PM - 07:00 PM", prize1: "₹8,000", prize2: "₹4,000", prize3: "₹2,000", registrationFee: "₹300/Team" },
+    { id: 13, day: 3, title: "Startup Idea Pitch", category: "StartUp", icon: Rocket, description: "Venture proposal defense (SSIP).", time: "09:00 AM Onwards", prize1: "₹50k", prize2: "₹30k", prize3: "₹20k", registrationFee: "Free" },
+    { id: 14, day: 3, title: "CAD Challenge", category: "Model", icon: Globe, description: "Interface Design Logic", time: "09:00 AM - 12:00 PM", prize1: "₹2,000", prize2: "₹1,000", prize3: "₹500", registrationFee: "₹100/User" },
+    { id: 15, day: 3, title: "UI/UX Challenge", category: "UIUX", icon: Globe, description: "Interface aesthetics logic.", time: "01:00 PM - 03:00 PM", prize1: "₹2,000", prize2: "₹1,000", prize3: "₹0", registrationFee: "₹100/User" },
+    { id: 16, day: 3, title: "Circuit Debugging", category: "circuit", icon: Cpu, description: "Hardware diagnostics.", time: "02:00 PM - 04:00 PM", prize1: "₹2,000", prize2: "₹1,000", prize3: "₹0", registrationFee: "₹200/Team" },
+    { id: 17, day: 3, title: "IoT Challenge", category: "iot", icon: Globe, description: "Connected systems protocol.", time: "04:00 PM - 07:00 PM", prize1: "₹8,000", prize2: "₹4,000", prize3: "₹2,000", registrationFee: "₹300/Team" },
     { id: 18, day: 3, title: "DJ Night", category: "Entertainment", icon: Music, description: "Sonic frequency celebration.", time: "08:00 PM Onwards", prize1: "N/A", prize2: "N/A", prize3: "N/A", registrationFee: "Free", noRegistration: true },
   ];
 

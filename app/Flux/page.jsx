@@ -15,6 +15,7 @@ import GamingPage from "../components/Flux/GamingRealmPage";
 import EventsBanner from "../components/Flux/EventsBanner"
 import FluxLanding from "../components/Flux/FluxLanding";
 import Concert from "../components/Flux/Concert";
+import Sponsors from "../components/Flux/sponsors";
 export default function FluxFest() {
   useEffect(() => {
     AOS.init({
@@ -62,6 +63,10 @@ export default function FluxFest() {
           
           <section id="gallery" data-aos="fade-up">
             <GalleryFlux />
+          </section>
+          
+          <section id="sponsor" data-aos="fade-up">
+            <Sponsors />
           </section>
           
           

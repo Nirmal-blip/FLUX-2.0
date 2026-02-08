@@ -104,12 +104,13 @@ export default function HeroFlux() {
       {/* ================= NAVBAR (Original UI) ================= */}
       <nav className="absolute top-0 left-0 w-full z-50 flex items-center justify-between px-4 md:px-10 py-4 md:py-6 hero-animate">
         <div className="text-lg font-black tracking-widest italic">FLUX<span className="text-[#E10600]">2026</span></div>
-
+<Link href="#contact" >
         <button className="group relative md:px-8 md:py-3 px-4 py-2 uppercase tracking-[0.3em] text-xs font-black text-white bg-[#E10600] rounded-sm transition-all duration-300 ease-out [transform-style:preserve-3d] hover:-translate-y-1 hover:shadow-[0_25px_70px_rgba(225,6,0,0.55)] active:translate-y-1">
           <span className="absolute inset-0 bg-[#b30000] translate-y-1 -z-10 opacity-90" />
           <span className="absolute inset-0 bg-[#7a0000] translate-y-2 -z-20 opacity-70" />
           <span className="relative z-10 flex items-center gap-2">CONTACT US</span>
         </button>
+        </Link>
       </nav>
 
       {/* ================= COUNTDOWN (Original Position) ================= */}

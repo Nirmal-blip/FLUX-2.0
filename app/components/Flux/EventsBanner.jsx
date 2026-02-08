@@ -48,42 +48,7 @@ export default function RefinedMissionPortal() {
       {/* ================= MAIN CONTENT ================= */}
       <div className="flex flex-col h-full">
 
-        {/* ================= WORKSHOPS ================= */}
-        <div className="relative flex-1 overflow-hidden border-b border-white/5">
-
-          {/* IMAGE */}
-          <div className="absolute inset-0">
-            <img
-              src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?q=80&w=1600"
-              className="w-full h-full object-cover brightness-[0.35] md:group-hover:scale-110 md:group-hover:brightness-[0.25] transition-all duration-[2s]"
-              alt="Workshops"
-            />
-            <div className="absolute inset-0 bg-blue-900/20 md:group-hover:bg-transparent transition-colors duration-700" />
-          </div>
-
-          {/* CONTENT */}
-          <div className="relative z-20 h-full flex items-center px-6 md:px-24">
-            <div className="max-w-2xl">
-
-              <span className="text-[10px] font-bold tracking-[0.6em] text-yellow-500 uppercase">
-                INNOVATE • BUILD • LEARN
-              </span>
-              <Link href="/FluxEvents">
-              <div className="mt-4 inline-flex items-center gap-4">
-              <h2 className="mt-4 text-4xl md:text-8xl font-black italic uppercase leading-none">
-                WORKSHOPS
-              </h2>
-              <div className="hidden md:flex bg-yellow-500 p-4 text-black rotate-45">
-                    <MoveRight size={32} className="-rotate-45" />
-                  </div>
-                  </div>
-                  </Link>
-              <p className="mt-4 text-[11px] md:text-[10px] font-mono text-gray-400 uppercase tracking-widest max-w-sm">
-                Hands-on technical sessions designed for real-world engineering exposure.
-              </p>
-            </div>
-          </div>
-        </div>
+     
 
         {/* ================= EVENTS ================= */}
         <div className="relative flex-1 overflow-hidden">

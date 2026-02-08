@@ -79,12 +79,12 @@ const LoadingScreen = ({ isLoading, pageName }) => {
               >
   <img
   src="/images/fluxImages/loadingbg1.png"
-  className="hidden md:block w-full h-full bg-red-600 object-cover"
+  className="hidden md:block w-full h-full object-cover"
 />
 
 <img
   src="/images/fluxImages/mobilebg1.png"
-  className="block md:hidden w-full h-full bg-[#ae2527] object-contain"
+  className="block md:hidden w-full h-full object-contain"
 />
                 <div className="absolute inset-0 bg-red-950/20" />
               </motion.div>
